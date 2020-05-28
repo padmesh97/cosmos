@@ -1,0 +1,68 @@
+.sidenav{
+	z-index:998 !important;
+}
+.sidenav2-logo{
+	background-image: url('/assets/images/logo.png');
+	background-size: cover;
+	height:50px;
+	width: 50px;
+}
+.logo-title{
+	padding-left: 10px;
+	font-size: 30px;
+	color: rgb(229, 250, 255); 
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+	animation: neon 2.5s;
+	animation-delay: 2s;
+	letter-spacing: 1.5px;
+}
+@keyframes neon{
+	0%{
+		letter-spacing: 0.5px;
+	}
+	40%{
+		letter-spacing: 7px;
+	}
+	100%{
+		letter-spacing: 1.5px;
+	}
+}
+.beta{
+	font-size: 14px;
+	line-height: 25px;
+	padding-left: 5px;
+	padding-right: 5px;
+	letter-spacing: 1.5px;
+	text-align: center;
+	font-weight: bold;
+	background-color: rgb(0, 255, 242);
+	color: rgba(9, 25, 33,1);
+	height: 25px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+.btn-db{
+	padding: 0.5rem 3.5rem !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:2rem 1rem;
+	letter-spacing: 0.5px
+}
+.btn-db-active{
+	box-shadow: inset 0px -2px 5px rgba(10,40,55, 1),
+				inset 0px 2px 5px rgba(2,8,30,1) !important;
+	text-shadow: 0 0 2px rgba(0, 255, 242,0.7),
+				 0 0 4px rgba(0, 255, 242,0.7) !important;
+}
+.rounded{
+	border-radius: 30px;
+}
+.centered{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

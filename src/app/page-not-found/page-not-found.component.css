@@ -1,0 +1,18 @@
+.full-container{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+}
+.txt{
+	text-align: center;
+	font-size: 4.5rem;
+}
+.btn-db{
+	margin-top:4rem;
+	font-size: 1.2rem;
+	padding:1.2rem 2.5rem;
+	border-radius: 80px;
+}

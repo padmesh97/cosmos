@@ -1,0 +1,77 @@
+<div class="origin">
+	<div class="row" style="margin-top: 13vh"> 
+		<div class="col l6 s12 m12 offset-l3 offset-m3">
+			
+			<div class="close-wrapper">
+				<button (click)="navigateBack()" class="close">
+					<i class="material-icons">close</i>
+				</button>
+			</div>
+
+			<div class="row">
+			    <div class="col l12 white-text">
+			    	<div class="row">
+			    		<div class="col s12">
+				        	<div  *ngIf="submitted==='processing'" class="preloader-wrapper big active">
+    							<div class="spinner-layer spinner-blue-only">
+      								<div class="circle-clipper left">
+        								<div class="circle"></div>
+      								</div>
+      								<div class="gap-patch">
+        								<div class="circle"></div>
+      								</div>
+      								<div class="circle-clipper right">
+        								<div class="circle"></div>
+      								</div>
+   								</div>
+  							</div>
+			    			<div *ngIf="submitted==='success'" class="card-panel success">
+						        <span class="white-text">
+						        	Data has been Successfully Submitted. ThankYou
+						        </span>
+						    </div>
+						    <div *ngIf="submitted==='error'" class="card-panel error">
+						        <span class="white-text">
+						        	Error Occured.Please retry.
+						        </span>
+						    </div>
+			    		</div>
+			    	</div>
+			    	<div class="row">
+					    <form class="col s12 l12" [formGroup]="publishForm" (ngSubmit)="onSubmit()">
+					    	<div class="input-field">
+					    		<div class="select-post">Select Post Type</div>
+							    <select class="browser-default col s12 l12 pad-0" formControlName="choice">
+							    	<option value="content">Post a Blog</option>
+							     	<option value="instagram_single">Instagram Single Image Post</option>
+							     	<option value="instagram_multi">Instagram Multi-image Post</option>
+							     	<option value="instagram_video">Instagram Video Post</option>
+							    </select>
+							</div>
+							<br>
+				        	<div *ngIf="publishForm.get('choice').value != '' " class="input-field">
+				        		<input id="accessToken" formControlName="accessToken" type="text" class="browser-default col s12 l12 pad-0" placeholder="Access Token">
+				        	</div>
+				        	<br>
+				        	<div *ngIf="publishForm.get('choice').value !== 'content' && publishForm.get('choice').value !== '' " class="input-field">
+				        		<input id="link" formControlName="link" type="text" placeholder="Link to Instagram post" class="browser-default col l12 s12 pad-0">
+				        	</div>
+				        	<br>
+				        	<div *ngIf="publishForm.get('choice').value === 'content'"class="input-field">
+					        	<textarea id="content" formControlName="content" class="browser-default col l12 s12 pad-0" placeholder="Your Content here"></textarea>
+					        </div>
+				        	<button [class.btn-db-disabled]="publishForm.get('choice').invalid || publishForm.get('accessToken').invalid ||  (publishForm.get('link').invalid && publishForm.get('content').invalid) || submitted==='processing'" class="btn-db center-align" type="submit">Submit</button>
+						</form>
+					</div>
+			    </div>
+
+			</div>
+        
+<!-- For viewing form data through dual binding
+	<div class="white-text" style="font-size:1em">{{ publishForm.value | json}}</div> 
+-->
+
+
+		</div>
+	</div>
+</div>

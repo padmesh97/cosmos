@@ -1,0 +1,56 @@
+<div class="col l8 offset-l2 s12 m10 offset-m1" style="padding-left: 1rem;padding-right: 1rem" [class.centered]="received==='none' || received==='error'">
+
+<!-- Pre Loader -->
+	<div class="preloader-wrapper big active" *ngIf="received==='none'">
+    	<div class="spinner-layer spinner-blue-only">
+      		<div class="circle-clipper left">
+        		<div class="circle"></div>
+      		</div>
+      		<div class="gap-patch">
+        		<div class="circle"></div>
+    		</div>
+    		<div class="circle-clipper right">
+        		<div class="circle"></div>
+    		</div>
+    	</div>
+ 	</div>
+
+<!-- Error Card -->
+	<div *ngIf="received==='error'" class="card-panel error">
+	    <span class="white-text">
+	    	Error Occured. Please Retry.
+	    </span>
+	</div>
+
+
+	<div class="card dark-blue-bg" *ngFor="let item of posts[0]">
+		<div class="card-external" *ngIf="item.type!=='content'"><a href="{{item.post_link}}" target="_blank"><i class="material-icons">open_in_new</i></a></div>
+		<div class="posted">Posted by : <span class="posted-content">{{item.username}}</span>&nbsp;&nbsp;| &nbsp;<span class="posted-content">{{item.ts}}</span></div>
+		<div class="divider"></div>
+		<div class="card-image waves-effect waves-block waves-light" *ngIf="item.type==='instagram_single'">
+		  <img class="activator grey-text text-lighten-3" src="{{item.post_image}}" alt="Image here by {{item.username}}">
+		</div>
+		<div class="card-frame" *ngIf="item.type==='instagram_multi' || item.type==='instagram_media'">
+			<iframe #iframeContainer [src]="sanitizer.bypassSecurityTrustResourceUrl(item.post_image)" width="100%" [height]="iframeContainer.offsetWidth"></iframe>
+		</div>
+
+		<video class="responsive-video" controls *ngIf="item.type==='instagram_video'">
+			<source src="{{item.post_image}}" type="video/mp4">
+		</video>
+        
+		<div class="card-text waves-effect" *ngIf="item.type==='content'">
+			{{item.content}}
+		</div>
+		<div class="card-content" *ngIf="item.type!=='content'">
+		  <span class="activator grey-text text-darken-4 credits">Credits: </span><span class="author">@{{item.post_author}}</span>
+		  <a style="display:inline-block;" class="right" target="_blank"><button class="activator btn-concave"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">filter_vintage</i>&nbsp;Caption</button></a>
+		</div>
+		<div class="card-reveal dark-blue-bg">
+		  <span class="card-title white-text"><i class="material-icons" style="vertical-align: middle;">filter_vintage</i>&nbsp;Caption<i class="material-icons right">close</i></span>
+		  <p [innerHTML]="item.post_caption | emoji" class="white-text" style="font-weight:100 !important"></p>
+		</div>
+	</div>
+	<div class="feedEnd" *ngIf="received==='success'">
+		.... End of the Feed ....
+	</div>
+</div>
