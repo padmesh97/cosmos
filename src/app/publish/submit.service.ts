@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SubmitService {
 
-  _url='http://localhost:1234/cosmosServer/capture.php';
+  _url='https://www.padmeshkunwar.me/cosmosServer/capture.php';
   constructor(private _http:HttpClient) { }
 
   submit(userData){
