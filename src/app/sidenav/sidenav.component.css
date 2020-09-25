@@ -66,3 +66,14 @@
 	justify-content: center;
 	align-items: center;
 }
+footer{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	color: rgb(0,255,242) !important;
+	font-size: 15px;
+}
+.footer-icons{
+	color: rgb(0,255,242) !important;
+	font-size: 28px;
+}

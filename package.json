@@ -25,6 +25,8 @@
     "jquery": "^3.5.0",
     "materialize-css": "^1.0.0-rc.2",
     "neu-axentix": "^1.0.1",
+    "ngx-infinite-scroll": "^9.1.0",
+    "ngx-spinner": "^10.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

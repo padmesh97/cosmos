@@ -10,10 +10,12 @@ export class SidenavComponent implements OnInit {
 
   constructor() { }
 
+	elems;
+	instances;
+
   ngOnInit()
   {
-  	var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, "");
+  	this.elems = document.querySelectorAll('.sidenav');
+    this.instances = M.Sidenav.init(this.elems, "");
   }
-
 }

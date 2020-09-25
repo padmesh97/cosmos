@@ -10,10 +10,9 @@
 	min-width: 320px;
 }
 .card-external{
-	position: absolute;
-	top: 3px;
-	right:18px;
 	font-size:25px;
+	margin-left: -18px;
+	margin-top:5px;
 }
 .card-external a{
 	text-decoration: none;
@@ -57,11 +56,8 @@
 		background-position: 0% 50%;
 	}
 }
-.card-content{
-	box-sizing: border-box;
-	border-top: 1px solid rgba(169,182, 193,0.5);
-	padding: 1.6rem 1.5rem;
-	padding-left: 5px;
+.card .card-content{
+	padding: 12px 24px 1px 24px;
 	font-size: 14px;
 }
 .card .card-content img{
@@ -71,22 +67,20 @@
 	color: rgb(136, 146, 176) !important;
 	padding-left: 1rem;
 }
+.credits-logo{
+	color: rgb(0,255,242) !important;
+	font-size: 22px;
+}
 .author{
-	display: inline-grid;
-	font-family: inherit;
-	overflow: auto;
-	max-width: 41%;
+	margin-top: -9px;
 	color: rgb(0,255,242);
-	text-shadow: 0 0 2px rgba(0,255,242,0.55),0 0 4px rgba(0,255,242,0.55);
-	padding-left:0.5rem;
-	position: relative;
-	z-index: 1;
+	padding-left:0.2rem;
+	text-shadow: 0 0 1px rgba(0,255,242,0.55),0 0 3px rgba(0,255,242,0.55);
+	line-height: 25px;
 }
 .btn-concave{
-	position: relative;
-	z-index: 2;
-	bottom: 6px;
-	padding: 0.6rem 1.25rem;
+	margin-top: -5px;
+	padding: 0.6rem 1rem;
 	border-radius: 8px
 }
 .btn-concave:active{
@@ -96,7 +90,7 @@
 	background: linear-gradient(145deg, rgba(6,17,34,1),rgba(12,45,90,1)) !important;
 }
 .posted{
-	padding:0.5em 1em;
+	padding-top: 8px;
 	color: rgb(136, 146, 176) !important;
 	text-align: center;
 }
@@ -111,13 +105,23 @@
 .error{
 	background:rgba(217, 30, 58, 0.9) !important;
 	border-radius:10px;
+	box-shadow: inset 3px 3px 7px rgb(179, 0, 27),inset -3px -3px 7px rgba(219, 40, 67,0.5),3px 3px 7px rgb(179, 0, 27),-3px -3px 7px rgba(219, 40, 67,0.5);
 	text-align: center;
 	border:solid 2px transparent;
-	box-shadow: inset 3px 3px 7px rgb(179, 0, 27),inset -3px -3px 7px rgba(219, 40, 67,0.5),3px 3px 7px rgb(179, 0, 27),-3px -3px 7px rgba(219, 40, 67,0.5);
+}
+.spinnerContainer{
+	display: flex;
+	position: relative;
+	margin-top:30px;
+	bottom: 0;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
 }
 .feedEnd{
 	display: flex;
 	margin-top:30px;
+	bottom: 0;
 	height: 50px;
 	align-items: center;
 	justify-content: center;

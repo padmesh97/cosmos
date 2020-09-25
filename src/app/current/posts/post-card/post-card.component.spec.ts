@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PostInstaCardComponent } from './post-insta-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostCardComponent } from './post-card.component';
 
 describe('PostInstaCardComponent', () => {
-  let component: PostInstaCardComponent;
-  let fixture: ComponentFixture<PostInstaCardComponent>;
+  let component: PostCardComponent;
+  let fixture: ComponentFixture<PostCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostInstaCardComponent ]
+      declarations: [ PostCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostInstaCardComponent);
+    fixture = TestBed.createComponent(PostCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

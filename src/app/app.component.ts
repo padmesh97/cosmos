@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as M from 'materialize-css';
+import { PostCardComponent } from './current/posts/post-card/post-card.component';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,17 @@ import * as M from 'materialize-css';
 
 export class AppComponent
 {
-  title = 'cosmos';
-  constructor()
-  {
-	    
-	    
+  postCardComponent:any;
+  constructor(){};
+
+  onActivate(componentRef){
+    if(componentRef instanceof PostCardComponent){
+      this.postCardComponent=componentRef;
+      return;
+    }
+  } 
+
+  onScroll(){
+      this.postCardComponent.loadNextPosts();
   }
 }
