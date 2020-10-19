@@ -1,0 +1,27 @@
+{
+  "name": "CosmosHub",
+  "short_name": "CosmosHub",
+  "description": "An astrophile's favourite home.Get ready to immerse in the unexplored expedition.",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [{
+    "src": "assets/images/logo48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "assets/images/logo72.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "assets/images/logo96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "assets/images/logo144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }],
+  "background_color": "#0a192f",
+  "theme_color": "#0a192f"
+}

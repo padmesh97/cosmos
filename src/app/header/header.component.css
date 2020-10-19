@@ -1,8 +1,14 @@
+.nav-wrapper{
+	background-image: url('/assets/images/bg_xs.jpg');
+	background-size: cover;
+	}
 .sidenav2-logo{
 	background-image: url('/assets/images/logo.png');
 	background-size: cover;
 	height:38px;
 	width: 38px;
+	border-radius: 25px;
+	margin-right: 13px;
 }
 .centered{
 	display: flex;

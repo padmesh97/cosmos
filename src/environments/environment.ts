@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:1234/cosmosServer/'
+  API_URL: 'http://localhost/cosmosServer/'
 };
 
 /*
