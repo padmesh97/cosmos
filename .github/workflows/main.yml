@@ -31,16 +31,17 @@ jobs:
           npm run build:prod
           echo Build created successfully..................
           cd dist/cosmos
+          git config user.email "kunwarpadmesh@yahoo.com"
+          git config user.name "Padmesh"
           git init
           git add .
           git commit -m "build commit"
-          echo Build directory initiated with successfully............
+          echo Build directory initiated with git successfully............
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
           git-ftp-args: --remote-root ./htdocs/
-          local-dir: ./dist/cosmos
           ftp-server: ftp://ftpupload.net
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
