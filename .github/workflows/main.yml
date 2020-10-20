@@ -23,27 +23,21 @@ jobs:
       # Runs a single command using the runners shell
       - name: Setting up node_modules and angular-cli
         run: |
-             cd ./
-             pwd 
-             ls
-      #   run: |
-      #     echo Initiating angular-cli installation v9.1.3..........
-      #     npm install @angular/cli@9.1.3
-      #     echo Initiating node_modules installation..............
-      #     npm install
-      #     echo Initiating Build............
-      #     npm run build:prod
-      #     echo Build created successfully..................
-      #     cd dist/cosmos
-      #     echo Entered into dist/cosmos...............
+          echo Initiating angular-cli installation v9.1.3..........
+          npm install @angular/cli@9.1.3
+          echo Initiating node_modules installation..............
+          npm install
+          echo Initiating Build............
+          npm run build:prod
+          echo Build created successfully..................
 
-      # - name: FTP-Deploy-Action
-      #   uses: SamKirkland/FTP-Deploy-Action@3.1.1
-      #   with:
-
-      #     ftp-server: ftp://ftpupload.net
-      #     ftp-username: ${{ secrets.FTP_USERNAME }}
-      #     ftp-password: ${{ secrets.FTP_PASSWORD }}
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          local-dir: ./dist/cosmos
+          ftp-server: ftp://ftpupload.net
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
 
 
       # Runs a set of commands using the runners shell
