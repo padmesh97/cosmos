@@ -44,7 +44,6 @@ jobs:
           ftp-server: ${{ secrets.FTP_HOST }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          git-ftp-args: --remote-root htdocs/
 
 
       # Runs a set of commands using the runners shell
