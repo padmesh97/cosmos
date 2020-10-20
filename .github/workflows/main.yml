@@ -31,8 +31,8 @@ jobs:
           npm run build:prod
           echo Build created successfully..................
           cd dist/cosmos
-          git config user.email "kunwarpadmesh@yahoo.com"
-          git config user.name "Padmesh"
+          git config --global user.email "kunwarpadmesh@yahoo.com"
+          git config --global user.name "Padmesh"
           git init
           git add .
           git commit -m "build commit"
