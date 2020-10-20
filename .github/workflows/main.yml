@@ -22,9 +22,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Setting up node_modules and angular-cli
-        run: cd ./
-        run: pwd 
-        run: ls
+        run: |
+             cd ./
+             pwd 
+             ls
       #   run: |
       #     echo Initiating angular-cli installation v9.1.3..........
       #     npm install @angular/cli@9.1.3
