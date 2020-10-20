@@ -30,10 +30,16 @@ jobs:
           echo Initiating Build............
           npm run build:prod
           echo Build created successfully..................
+          cd dist/cosmos
+          git init
+          git add .
+          git commit -m "build commit"
+          echo Build directory initiated with successfully............
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
+          git-ftp-args: --remote-root ./htdocs/
           local-dir: ./dist/cosmos
           ftp-server: ftp://ftpupload.net
           ftp-username: ${{ secrets.FTP_USERNAME }}
