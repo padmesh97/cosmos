@@ -34,13 +34,15 @@ jobs:
           npm install
           echo Initiating Build............
           npm run build:prod
-          chmod -R 777 dist/cosmos 
           echo Build created successfully..................
 
+      - name: List output files
+        run: find cosmos/ -print
+
       - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ftpupload.net
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: dist/cosmos
+        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+        with:
+          ftp-server: ftp://ftpupload.net/htdocs
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: cosmos
