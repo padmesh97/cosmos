@@ -34,6 +34,7 @@ jobs:
           npm install
           echo Initiating Build............
           npm run build:prod
+          cd dist/cosmos
           echo Build created successfully..................
 
       - name: FTP-Deploy-Action
@@ -42,4 +43,3 @@ jobs:
           FTP_SERVER: ftpupload.net
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          LOCAL_DIR: dist/cosmos
