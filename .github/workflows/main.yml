@@ -31,13 +31,10 @@ jobs:
           echo Initiating angular-cli installation v9.1.3..........
           npm install @angular/cli@9.1.3
           echo Initiating node_modules installation..............
-          npm install
+          npm ci
           echo Initiating Build............
           npm run build:prod
           echo Build created successfully..................
-
-      - name: Reset package-lock.json
-        run: git checkout package-lock.json
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.0
