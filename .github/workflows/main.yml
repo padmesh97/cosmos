@@ -36,13 +36,10 @@ jobs:
           npm run build:prod
           echo Build created successfully..................
 
-      - name: List output files
-        run: find cosmos/ -print
-
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.0
         with:
           ftp-server: ftp://ftpupload.net/htdocs
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: cosmos
+          local-dir: ./dist/cosmos
