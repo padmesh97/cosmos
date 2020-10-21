@@ -34,6 +34,8 @@ jobs:
           npm install
           echo Initiating Build............
           npm run build:prod
+          git config --global user.name "padmesh97"
+          git config --global user.email "kunwarpadmesh@yahoo.com"
           git add .
           git commit -m "commit"
           echo Build created successfully..................
