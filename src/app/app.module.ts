@@ -9,7 +9,6 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DropMenuComponent } from './drop-menu/drop-menu.component';
 import { HeaderComponent } from './header/header.component';
-import { IonicModule } from '@ionic/angular'; 
  
 import { CurrentModule} from './current/current.module';
 import { EntertainmentModule} from './entertainment/entertainment.module';
@@ -42,7 +41,6 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    IonicModule.forRoot(),
     CurrentModule,
     EntertainmentModule,
     EresourcesModule,

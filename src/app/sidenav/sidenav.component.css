@@ -2,10 +2,11 @@
 	z-index:998 !important;
 }
 .sidenav2-logo{
-	background-image: url(/cosmos/assets/images/logo.png);
+	background-image: url(/assets/images/logo.png);
 	background-size: cover;
 	height:50px;
 	width: 50px;
+	border-radius: 25px;
 }
 .logo-title{
 	padding-left: 10px;
@@ -76,4 +77,8 @@ footer{
 .footer-icons{
 	color: rgb(0,255,242) !important;
 	font-size: 28px;
+}
+.background{
+	background-image:url('/assets/images/bg.jpg');
+	background-size:cover;
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PostsRoutingModule } from './posts-routing.module';
-import { IonicModule } from '@ionic/angular';
 import { PostCardComponent } from './post-card/post-card.component';
 import { EmojiPipe } from './post-card/emoji.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -12,7 +11,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   declarations: [PostCardComponent, EmojiPipe],
   imports: [
     CommonModule,
-    IonicModule.forRoot(),
     PostsRoutingModule,
     NgxSpinnerModule
   ],
