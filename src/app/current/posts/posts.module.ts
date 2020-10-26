@@ -5,10 +5,11 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { PostCardComponent } from './post-card/post-card.component';
 import { EmojiPipe } from './post-card/emoji.pipe';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { JsonparsePipe } from './post-card/jsonparse.pipe';
 
 
 @NgModule({
-  declarations: [PostCardComponent, EmojiPipe],
+  declarations: [PostCardComponent, EmojiPipe, JsonparsePipe],
   imports: [
     CommonModule,
     PostsRoutingModule,

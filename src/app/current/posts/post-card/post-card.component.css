@@ -23,6 +23,10 @@
 	padding:0.7rem;
 	border-radius: 1.7rem 1.7rem 0 0;
 }
+.img-multi{
+	padding:0 !important;
+	border-radius: 0 !important
+}
 .card-frame{
 	padding:0.7rem;
 	overflow: auto;
@@ -83,12 +87,6 @@
 	padding: 0.6rem 0.8rem;
 	border-radius: 8px
 }
-.btn-concave:active{
-	background: linear-gradient(145deg, rgba(6,17,34,1),rgba(12,45,90,1)) !important;
-}
-.btn-concave:focus{
-	background: linear-gradient(145deg, rgba(6,17,34,1),rgba(12,45,90,1)) !important;
-}
 .posted{
 	padding-top: 8px;
 	color: rgb(136, 146, 176) !important;
@@ -142,4 +140,10 @@
 }
 video{
 	outline:none !important;
+}
+.carousel .indicators .indicator-item .active{
+	background-color: rgb(0,255,242) !important;
+}
+.carousel .indicators .indicator-item{
+	background-color: rgba(46, 240, 230,0.5) !important;
 }

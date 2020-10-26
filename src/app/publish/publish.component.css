@@ -67,9 +67,11 @@
 	font-size: 27px;
 	border-radius:100%;
 	color: rgb(0, 255, 242);
-	padding:8px 9px;
+	padding:7px 9px;
 	text-shadow:0 0 2px rgb(0,255,242),
 				0 0 4px rgb(0,255,242);
+	border: 1px solid rgb(6,17,34,0.2);
+	cursor: pointer;
 }
 .close:active{
 	box-shadow: inset 0px -2px 5px rgba(10,40,55, 1),
@@ -93,6 +95,7 @@ select{
 	background-color: rgba(10,25,47,1);
 	outline: none !important;
 	border:none;
+	color: rgb(230,230,230) !important;
 	padding:1rem 0 1rem 2rem !important;
 	font-size:15px;
 	height: 55px;
@@ -101,6 +104,7 @@ select{
 }
 select option{
 	outline: none !important;
+	color: rgb(230,230,230) !important;
 }
 input{
 	box-shadow: inset 0px -2px 5px rgba(10,40,55, 1),
@@ -108,7 +112,7 @@ input{
 	background-color: rgba(10,25,47,1);
 	outline: none !important;
 	border:none;
-	padding:1rem 0 1rem 2rem !important;
+	padding:1rem 2rem !important;
 	font-size:15px;
 	border-radius:30px;
 	color: rgb(230,230,230) !important;

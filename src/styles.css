@@ -64,12 +64,18 @@ a{
 	padding: 1rem 2rem;
 	list-style: none;
 	transition: all 0.1s;
+	border: 1px solid rgb(6,17,34,0.2);
 }
 .btn-concave:hover{
-	filter:brightness(90%);
-	transform:translate(0,-1px);
+	filter:brightness(130%);
+	transform:translate(0,-2px);
+	cursor: pointer;
 }
 .btn-concave:active{
+	box-shadow: inset 0px -2px 5px rgba(12,45,90,1),
+				inset 0px 2px 5px rgba(6,17,34,1) !important;
+}
+.btn-concave:focus{
 	box-shadow: inset 0px -2px 5px rgba(12,45,90,1),
 				inset 0px 2px 5px rgba(6,17,34,1) !important;
 }

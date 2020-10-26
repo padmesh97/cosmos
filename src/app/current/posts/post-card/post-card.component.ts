@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { DomSanitizer,Title } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from '../../../../environments/environment';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-post-card',
@@ -13,10 +14,12 @@ import { environment } from '../../../../environments/environment';
 export class PostCardComponent implements OnInit {
   API_URL= environment.API_URL;
   received = 'none';
-  posts: any = [];
-  tempPosts: any = [];
+  posts:any = [];
+  tempPosts:any = [];
   fetchGap=5; // use this to set number of results wanted per fetch
   fetchEnd=0;
+  options={fullWidth:true,indicators:true};
+  number=[1,2];
 
   constructor(private http: HttpClient,public spinner: NgxSpinnerService,public sanitizer: DomSanitizer,private titleService:Title) 
   { 
@@ -33,6 +36,7 @@ export class PostCardComponent implements OnInit {
     this.http.get(url).subscribe(data => {
       this.posts = data;
       this.received='success';
+      this.initCarousel();
     },
     error =>
     {
@@ -51,6 +55,7 @@ export class PostCardComponent implements OnInit {
         if(this.tempPosts.length < this.fetchGap)
           this.received='end';
         this.posts = this.posts.concat(this.tempPosts);
+        this.initCarousel();
       },
       error =>
       {
@@ -59,5 +64,13 @@ export class PostCardComponent implements OnInit {
 
       this.tempPosts = [];
     }
+  }
+
+  initCarousel() {
+    // timeout needed, otherwise navigation won't work.
+    setTimeout(() => {
+       let elems = document.querySelectorAll('.carousel');
+       let instances = M.Carousel.init(elems, this.options);
+    }, 100);
   }
 }
