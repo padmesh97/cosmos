@@ -5,7 +5,7 @@
 </p>
 
 <h2 align="center">COSMOSHUB</h2>
-<h4 align="center">v1.1.0b [![build Actions Status](https://github.com/padmesh97/cosmos/workflows/CD-pipeline-cosmos/badge.svg)](https://github.com/padmesh97/cosmos/actions) </h4>
+<h4 align="center">v 1.1.0<strong>b</strong>&nbsp;&nbsp;<img src="https://github.com/padmesh97/cosmos/workflows/CD-pipeline-cosmos/badge.svg"> </h4>
 
 <p align="center">
   An angular Progressive Web Application(PWA) with a motive to create a hub for astrogeeks and astrophiles to discover,share and explore the realms of never ending universe in the most next level way.
