@@ -5,7 +5,7 @@
 </p>
 
 <h2 align="center">COSMOSHUB</h2>
-<h4 align="center">v 1.1.0<strong>b</strong>&nbsp;&nbsp;<img src="https://github.com/padmesh97/cosmos/workflows/CD-pipeline-cosmos/badge.svg"> </h4>
+<h4 align="center"><img src="https://img.shields.io/github/v/release/padmesh97/cosmos.svg">&nbsp;&nbsp;<img src="https://github.com/padmesh97/cosmos/workflows/build/badge.svg">&nbsp;&nbsp;<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></h4>
 
 <p align="center">
   An angular Progressive Web Application(PWA) with a motive to create a hub for astrogeeks and astrophiles to discover,share and explore the realms of never ending universe in the most next level way.
@@ -38,9 +38,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 The backend has been developed using `PHP-CodeIgniter` and `MySQL`.Its under development and has not been open sourced yet.
 
-# Contribution
+# Contribution and PR
 
-All the developers are warmly welcomed to contribute to this project by adding different functionalities and ideas on the website.To get an idea about working of this app and its API-endpoints please [Contact](mailto:kunwarpadmesh@yahoo.com) the creator.
+All the developers are warmly welcomed to contribute to this project by adding different functionalities and ideas on the website and to build everlasting impact on this astronomy loving community.<br>To get an idea about working of this app and its API-endpoints please [Contact](mailto:kunwarpadmesh@yahoo.com) the creator.
 
 # Build
 
