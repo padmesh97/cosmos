@@ -1,10 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Acumin;
+    src: url("assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Acumin;
+    font-weight: bold;
+    src: url("assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");
+}
 ::selection{
 	background-color: rgb(33,94,101);
 }
 html,body{
-	font-family: 'Poppins', sans-serif !important;
+	font-family: 'lato', sans-serif !important;
+	/*font-family: Acumin,sans-serif !important;*/
+	min-width: 360px;
 	background-color: rgba(10,25,47,1);
+	/*background-image: url(/assets/images/galaxy.gif);
+	background-size: contain;
+	background-attachment: fixed;*/
 	scrollbar-color: rgba(10,25,47,0.1) rgba(10,25,47,0.1);
   	scrollbar-width: none;
 }
@@ -85,3 +100,29 @@ a{
    margin-top: 0.1em !important;
    vertical-align: 0em !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

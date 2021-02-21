@@ -35,6 +35,7 @@
 	align-items: center;
 }
 .btn-db{
+	outline: none !important;
 	max-width: 10em;
 	font-size: 1em;
 	border-radius: 30px;

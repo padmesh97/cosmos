@@ -5,15 +5,14 @@ import {PublishComponent} from './publish/publish.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {ReleasesComponent} from './releases/releases.component';
-import {PostCardComponent} from './current/posts/post-card/post-card.component';
 
 
 const routes: Routes = [
 {
-	path:'',component:PostCardComponent,pathMatch:'full'
+	path: '', redirectTo: 'current',pathMatch:'full'
 },
 {
-	path:'publish',component:PublishComponent,outlet:'publishArea'
+	path:'publish',component:PublishComponent
 },
 {
 	path:'about',component:AboutComponent
@@ -23,7 +22,10 @@ const routes: Routes = [
 },
 {
 	path:'releases',component:ReleasesComponent
-}
+},
+// {
+// 	path: '**', component: PageNotFoundComponent
+// }
 ];
 
 

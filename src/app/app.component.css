@@ -1,10 +1,5 @@
 .overflow{
-	overflow-y: scroll;
-	height:100vh
-}
-.core-bg{
-	background-image: url(/assets/images/galaxy.gif);
-	background-size: contain;
+	min-height:90vh
 }
 .ad{
 	position: fixed;

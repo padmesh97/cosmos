@@ -18,21 +18,24 @@ export class PostCardComponent implements OnInit {
   tempPosts:any = [];
   fetchGap=5; // use this to set number of results wanted per fetch
   fetchEnd=0;
-  options={fullWidth:true,indicators:true};
-  number=[1,2];
+  carouselOptions={fullWidth:true};
+  dropdownOptions={coverTrigger:false,alignment:'right'};
 
   constructor(private http: HttpClient,public spinner: NgxSpinnerService,public sanitizer: DomSanitizer,private titleService:Title) 
   { 
     this.titleService.setTitle("Feed | Cosmos");
   }
 
-  ngOnInit(){
+  ngOnInit(){}
+
+  ngAfterViewInit(){
     if(this.posts.length === 0)
       this.loadInitPosts();
   }
 
   loadInitPosts(){
-    const url = this.API_URL+'getPosts.php?fetchEnd='+this.fetchEnd+'&fetchGap='+this.fetchGap;
+    //const url = this.API_URL+'getPosts.php?fetchEnd='+this.fetchEnd+'&fetchGap='+this.fetchGap;
+    const url = this.API_URL+'index.php/current/feed_fetch/'+this.fetchGap+'/'+this.fetchEnd;
     this.http.get(url).subscribe(data => {
       this.posts = data;
       this.received='success';
@@ -48,7 +51,8 @@ export class PostCardComponent implements OnInit {
     if(this.received !== 'end' && this.received !== 'error'){
       this.spinner.show();
       this.fetchEnd+=this.fetchGap;
-      const url = this.API_URL+'getPosts.php?fetchEnd='+this.fetchEnd+'&fetchGap='+this.fetchGap;
+      //const url = this.API_URL+'getPosts.php?fetchEnd='+this.fetchEnd+'&fetchGap='+this.fetchGap;
+      const url = this.API_URL+'index.php/current/feed_fetch/'+this.fetchGap+'/'+this.fetchEnd;
       this.http.get(url).subscribe(data => {
         this.tempPosts = data;
         this.spinner.hide();
@@ -67,10 +71,20 @@ export class PostCardComponent implements OnInit {
   }
 
   initCarousel() {
-    // timeout needed, otherwise navigation won't work.
+    // timeout needed, otherwise carousel won't work.
     setTimeout(() => {
        let elems = document.querySelectorAll('.carousel');
-       let instances = M.Carousel.init(elems, this.options);
+       let instances = M.Carousel.init(elems, this.carouselOptions);
+       let dropdownElems = document.querySelectorAll('.dropdown-trigger');
+       let dropdownInstances = M.Dropdown.init(dropdownElems, this.dropdownOptions);
     }, 100);
   }
+  carouselNavigate(option,event){
+    let instance = M.Carousel.getInstance(event.currentTarget.parentNode);
+    if(option==='next')
+      instance.next();
+    if(option==='prev')
+      instance.prev();
+  }
+  
 }

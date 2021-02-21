@@ -1,17 +1,26 @@
 <nav class="dark-blue-bg hide-on-large-only">
 	<div class="nav-wrapper">
-		<a data-target="slide-out" class="sidenav-trigger" style="cursor: pointer;"><i class="material-icons">menu</i></a>
-    	<a class="centered">
+		<a data-target="slide-out" class="sidenav-trigger" style="cursor: pointer;">
+			<i class="material-icons">menu</i>
+		</a>
+    	<a class="brand-logo" style="display: flex;flex-flow: row;font-size: unset;align-items: center;">
 			<div class="sidenav2-logo"></div>
 			<div class="logo-title">COSMOS</div>
 			<div class="beta">BETA</div>
 		</a>
-    		<!--
-    		<ul class="right">
-      			<li><ion-icon name="search-outline"></ion-icon></li>
-    		</ul>
-    		-->
+		<ul class="right nav-search-wrapper" style="margin-right:20px;" [ngClass]="{'nav-search-wrapper-active': searchScreenActivated == true}" (click)="searchScreenActivate()">
+  			<li>
+  				<i class="material-icons">search</i>
+  			</li>
+		</ul>
  	</div>
 </nav>
-
-        
+<div class="search-screen hide-on-large-only" [ngClass]="{'hide': searchScreenActivated == false}">
+	<div class="row">
+		<div class="input-field col s12" style="display: flex;flex-flow: row;align-items: center">
+          <input id="icon_prefix" type="text" class="validate browser-default search-input" placeholder="Search Cosmos"  style="order: 2" autofocus>
+          <i class="material-icons search-input-icon" (click)="searchScreenActivate()" [ngClass]="{'search-input-icon-activate': searchScreenActivated == true}" style="order: 1">keyboard_backspace</i>
+          <i class="material-icons search-input-clear" style="order: 3">close</i>
+        </div>
+	</div>
+</div>

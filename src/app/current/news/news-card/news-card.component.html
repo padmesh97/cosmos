@@ -1,1 +1,71 @@
-<p> news-card work! </p>
+<div class="row">
+	<div id="newsContainer" class="col s12 l10 offset-l1">
+		<div class="title">
+			NASA TV - LIVE
+			<hr>
+		</div>
+		<br>
+		<div class="video-container">
+			<iframe src="https://www.youtube.com/embed/21X5lGlDOfg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%;height:100%;margin:0 1rem"></iframe>
+		</div>
+
+		<div class="title" *ngIf="picOfDayStatus!=='error'">
+			Astronomy picture of the day
+			<hr>
+		</div>
+		<div class="pic-of-day" *ngIf="picOfDayStatus!=='error'">
+			<ng-container  *ngIf="picOfDayStatus=='success'">
+				<div class="pic-of-day-title">{{picOfDayList.title}}</div>
+				<div class="video-container" *ngIf="picOfDayList.media_type==='video'">
+					<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(picOfDayList.url)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%;border-radius:10px;height:100%"></iframe>
+				</div>
+				<img class="responsive-img" src="{{picOfDayList.url}}" *ngIf="picOfDayList.media_type==='image'" style="border-radius:10px">
+				<div class="pic-of-day-text">{{picOfDayList.explanation}}</div>
+			</ng-container>
+		</div>
+
+		<div class="title" *ngIf="catchISSStatus!=='error'">
+			Catch ISS
+			<hr>
+		</div>
+		<div class="catchISS" *ngIf="catchISSStatus!=='error'">
+			<div id="catchISSMap" style="flex-basis: 50%">
+				<iframe *ngIf="catchISSStatus=='success'"
+				  frameborder="0" scrolling="no" width="100%" height="100%" 
+				  [src]="sanitizer.bypassSecurityTrustResourceUrl('https://maps.google.com/maps?q='+catchISSList.latitude+','+catchISSList.longitude+'&hl=en&z=2&ie=UTF8&iwloc=B&output=embed')"
+				  style="border-radius: 8px 0 0 8px;height: 100%;width: 100%"
+				 ></iframe>
+			</div>
+			<div id="catchISSContent" style="flex-basis: 50%" *ngIf="catchISSStatus=='success'">
+				<div class="catchISS-details">
+					<span class="catchISS-detail-title">Latitude :</span>{{catchISSList.latitude}}<br>
+					<span class="catchISS-detail-title">Longitude :</span>{{catchISSList.longitude}}<br>
+					<span class="catchISS-detail-title">Horizon :</span>{{catchISSList.visibility}}<br>
+					<span class="catchISS-detail-title">Country :</span>{{catchISSList2.countryName}}<br>
+					<span class="catchISS-detail-title">Time Zone :</span>{{catchISSList2.principalSubdivision}}<br>
+					<span class="catchISS-detail-title">Locality :</span>{{catchISSList2.locality}}<br>
+					<span class="catchISS-detail-title">DayCount :</span>{{catchISSList.daynum}}
+				</div>
+			</div>
+		</div>
+
+		<div class="title" *ngIf="spaceNewsStatus!=='error'">
+			Space @ glance
+			<hr>
+		</div>
+		<div class="space-news-wrapper" *ngIf="spaceNewsStatus=='success'">
+			<div class="space-news" *ngFor="let item of spaceNewsList.docs">
+				<img [src]="item.featured_image">
+				<div class="space-news-title">{{item.title}}</div>
+				<div class="space-news-source-time">
+					<span class="space-news-source">{{item.news_site_long}}</span>
+					<span class="space-news-time" [textContent]="'&nbsp;&nbsp;&#8213;&nbsp;&nbsp;'+spaceNewsTimeList[item.date_published]"></span>
+				</div>
+				<a class="space-new-link" [href]="item.url" target="_blank">
+					<button>View More</button>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</div>

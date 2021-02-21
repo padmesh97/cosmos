@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class SubmitService {
   API_URL= environment.API_URL;
-  _url=this.API_URL+'capture.php';
+  _url=this.API_URL+'index.php/current/feed_add';
   constructor(private _http:HttpClient) { }
 
   submit(userData){

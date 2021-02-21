@@ -1,91 +1,116 @@
-<div id="feedContainer" class="col l8 offset-l2 s12 m10 offset-m1" style="padding-left: 1rem;padding-right: 1rem" [class.centered]="received==='none' || received==='error'">
+<div class="row">
 
-<!-- Pre Loader -->
-	<div class="preloader-wrapper big active" *ngIf="received==='none'">
-    	<div class="spinner-layer spinner-blue-only">
-      		<div class="circle-clipper left">
-        		<div class="circle"></div>
-      		</div>
-      		<div class="gap-patch">
-        		<div class="circle"></div>
-    		</div>
-    		<div class="circle-clipper right">
-        		<div class="circle"></div>
-    		</div>
-    	</div>
- 	</div>
+	<div id="feedContainer" class="col l8 offset-l2 s12 m10 offset-m1" style="padding-left: 1rem;padding-right: 1rem" [class.centered]="received==='none' || received==='error'">
 
-<!-- Error Card -->
-	<div *ngIf="received==='error'" class="card-panel error">
-	    <span class="white-text">
-	    	Error Occured. Please Retry.
-	    </span>
-	</div>
+	<!-- Pre Loader -->
+		<div class="preloader-wrapper big active" *ngIf="received==='none'">
+	    	<div class="spinner-layer spinner-blue-only">
+	      		<div class="circle-clipper left">
+	        		<div class="circle"></div>
+	      		</div>
+	      		<div class="gap-patch">
+	        		<div class="circle"></div>
+	    		</div>
+	    		<div class="circle-clipper right">
+	        		<div class="circle"></div>
+	    		</div>
+	    	</div>
+	 	</div>
+
+	<!-- Error Card -->
+		<div *ngIf="received==='error'" class="card-panel error">
+		    <span class="white-text">
+		    	Error Occured. Please Retry.
+		    </span>
+		</div>
 
 
-	<div class="card dark-blue-bg" *ngFor="let item of posts">
-		<div class="row" style="margin-bottom: 0">
-			<div class="col s11" style="margin: 0;padding:0 20px">
-				<div class="posted">
-					Posted by : <span class="posted-content">{{item.username}}</span>&nbsp;&nbsp;| &nbsp;<span class="posted-content">{{item.ts}}</span>
+		<div class="card dark-blue-bg" *ngFor="let item of posts;let i=index">
+			<div class="row" style="margin-bottom: 0;padding:0 16px">
+				<div class="col s11" style="margin: 0;padding:0">
+					<div class="posted">
+						Shared by : <span class="posted-content">{{item.username}}</span>
+						<!--|&nbsp;&nbsp;&nbsp;<span class="posted-content">{{item.ts}}</span>-->
+					</div>
+				</div>
+				<div class="col s1 dropdown-trigger card-external" [attr.data-target]="'carousel-dropdown'+i" style="margin: 0;padding:0">
+					<i class="las la-ellipsis-v"></i>
+					<ul id='carousel-dropdown{{i}}' class='dropdown-content'>
+						<li><a><!--<i class="las la-history"></i>-->{{item.ts}}</a></li>
+						<li *ngIf="item.type!=='content'"><a href="{{item.post_link}}" target="_blank"><i class="las la-external-link-alt"></i>View External</a></li>
+						<li><a><i class="las la-exclamation-triangle"></i>Report</a></li>
+					</ul>
 				</div>
 			</div>
-			<div class="col s1" style="margin: 0;padding:0">
-				<div class="card-external" *ngIf="item.type!=='content'"><a href="{{item.post_link}}" target="_blank"><i class="material-icons">open_in_new</i></a></div>
+			<div class="divider"></div>
+			<div class="card-image" *ngIf="item.type==='instagram_multi' || item.type==='instagram_media'">
+				<!--
+				<iframe #iframeContainer [src]="sanitizer.bypassSecurityTrustResourceUrl(item.post_image)" width="100%" [height]="iframeContainer.offsetWidth"></iframe>
+				-->
+				<div #carousel class="carousel carousel-slider center" (window:resize)="0" [ngStyle]="{'height.px':carousel.offsetWidth}">
+					<div class="carousel-navigator waves-effect" (click)="carouselNavigate('prev',$event)" style="left:3%">
+						<i class="las la-angle-left"></i>
+					</div>
+					<div class="carousel-navigator waves-effect" (click)="carouselNavigate('next',$event)" style="right:3%;">
+						<i class="las la-angle-right"></i>
+					</div>
+					<div class="carousel-item" *ngFor="let media_item of item.post_image | jsonparse">
+						<div class="carousel-image-wrapper" *ngIf="media_item.type==='image'">
+							<img class="responsive-img" src="{{media_item.link}}">
+						</div>
+						<div class="video-wrapper" style="height: inherit;" *ngIf="media_item.type==='video'">
+							<video class="responsive-video" controls style="max-height: unset;">
+								<source src="{{media_item.link}}" type="video/mp4">
+							</video>
+							<div class="video-controls"></div>
+						</div>
+					</div>
+				</div>
+	      
+			</div>
+
+			<div class="card-image" *ngIf="item.type==='instagram_single'">
+			  <img class="grey-text text-lighten-3" src="{{item.post_image}}" alt="Image here by {{item.username}}">
+			</div>
+
+			<div class="video-wrapper" *ngIf="item.type==='instagram_video'">
+				<video class="responsive-video" controls playsinline="playsinline">
+					<source src="{{item.post_image}}" type="video/mp4">
+				</video>
+				<div class="video-controls"></div>
+			</div>
+	        
+			<div class="card-text" *ngIf="item.type==='content'">
+				{{item.content}}
+			</div>
+
+			<div class="card-content" *ngIf="item.type!=='content'">
+				<div class="row">
+					<div class="col s7" style="display: flex;align-items: center;overflow: auto;white-space: nowrap;text-transform:">
+						<!--<span class="grey-text text-darken-4 credits">Credits: </span>-->
+						<div class="credits-logo"><i class="lab la-instagram"></i></div>
+						<a class="author" href="https://www.instagram.com/{{item.post_author}}" title="Instagram - {{item.post_author}}">@{{item.post_author}}</a>
+					</div>
+					<div class="col s5">
+			  			<a class="right" target="_blank"><button class="activator btn-concave"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">filter_vintage</i>&nbsp;Caption</button></a>
+			  		</div>
+			  	</div>
+			</div>
+			<div class="card-reveal dark-blue-bg">
+			  <span class="card-title white-text"><i class="material-icons" style="vertical-align: middle;">filter_vintage</i>&nbsp;Caption<i class="material-icons right">close</i></span>
+			  <p [innerHTML]="item.post_caption | emoji" class="white-text" style="font-weight:100 !important"></p>
 			</div>
 		</div>
-		<div class="divider"></div>
-		<div class="card-image" *ngIf="item.type==='instagram_multi' || item.type==='instagram_media'">
-			<!--
-			<iframe #iframeContainer [src]="sanitizer.bypassSecurityTrustResourceUrl(item.post_image)" width="100%" [height]="iframeContainer.offsetWidth"></iframe>
-			-->
-			<div class="carousel carousel-slider center" data-indicators="true">
-				<div class="carousel-item" *ngFor="let media_item of item.post_image | jsonparse">
-					<img class="img-multi" src="{{media_item.link}}" *ngIf="media_item.type==='image'">
-					<video class="responsive-video" controls *ngIf="media_item.type==='video'">
-						<source src="{{media_item.link}}" type="video/mp4">
-					</video>
-				</div>
-			</div>
-      
+
+		<div class="spinnerContainer">
+			<ngx-spinner bdColor = "" size = "default" color = "#00fff2" type="line-scale-pulse-out" [fullScreen]="false">
+			</ngx-spinner>
 		</div>
 
-		<div class="card-image" *ngIf="item.type==='instagram_single'">
-		  <img class="grey-text text-lighten-3" src="{{item.post_image}}" alt="Image here by {{item.username}}">
+		<div class="feedEnd" *ngIf="received==='end'">
+			.... End of the Feed ....
 		</div>
 
-		<video class="responsive-video" controls *ngIf="item.type==='instagram_video'">
-			<source src="{{item.post_image}}" type="video/mp4">
-		</video>
-        
-		<div class="card-text waves-effect" *ngIf="item.type==='content'">
-			{{item.content}}
-		</div>
-		<div class="card-content" *ngIf="item.type!=='content'">
-			<div class="row">
-				<div class="col s7" style="display: flex;align-items: center;overflow: auto;white-space: nowrap;text-transform:">
-					<!--<span class="grey-text text-darken-4 credits">Credits: </span>-->
-					<div class="credits-logo"><i class="lab la-instagram"></i></div>
-					<a class="author" href="https://www.instagram.com/{{item.post_author}}" title="Instagram - {{item.post_author}}">@{{item.post_author}}</a>
-				</div>
-				<div class="col s5">
-		  			<a class="right" target="_blank"><button class="activator btn-concave"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">filter_vintage</i>&nbsp;Caption</button></a>
-		  		</div>
-		  	</div>
-		</div>
-		<div class="card-reveal dark-blue-bg">
-		  <span class="card-title white-text"><i class="material-icons" style="vertical-align: middle;">filter_vintage</i>&nbsp;Caption<i class="material-icons right">close</i></span>
-		  <p [innerHTML]="item.post_caption | emoji" class="white-text" style="font-weight:100 !important"></p>
-		</div>
-	</div>
-
-	<div class="spinnerContainer">
-		<ngx-spinner bdColor = "" size = "default" color = "#00fff2" type="line-scale-pulse-out" [fullScreen]="false">
-		</ngx-spinner>
-	</div>
-
-	<div class="feedEnd" *ngIf="received==='end'">
-		.... End of the Feed ....
 	</div>
 
 </div>

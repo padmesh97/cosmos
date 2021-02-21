@@ -11,4 +11,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  searchScreenActivated=false;
+
+  searchScreenActivate(){
+  	this.searchScreenActivated=!this.searchScreenActivated;
+  }
 }

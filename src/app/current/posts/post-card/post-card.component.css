@@ -11,21 +11,14 @@
 }
 .card-external{
 	font-size:25px;
-	margin-left: -18px;
-	margin-top:5px;
-}
-.card-external a{
-	text-decoration: none;
-	outline:none !important;
+	text-align: center;
+	margin-right: 5px;
+	transform: translate(-5px,0);
 	color: rgb(0,255,242) !important;
 }
 .card .card-image img{
 	padding:0.7rem;
 	border-radius: 1.7rem 1.7rem 0 0;
-}
-.img-multi{
-	padding:0 !important;
-	border-radius: 0 !important
 }
 .card-frame{
 	padding:0.7rem;
@@ -138,12 +131,85 @@
 	text-align: justify;
 	background-color: rgb(100,255,218);
 }
+.video-wrapper{
+	width: 100%;
+	background-color: rgba(0,0,0,0.7)
+}
 video{
 	outline:none !important;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0);
+	max-height:25rem
 }
-.carousel .indicators .indicator-item .active{
-	background-color: rgb(0,255,242) !important;
+.carousel.carousel-slider .carousel-item {
+	min-height: 200px
 }
-.carousel .indicators .indicator-item{
-	background-color: rgba(46, 240, 230,0.5) !important;
+.carousel-navigator{
+	position: absolute;
+	top: 50%;
+	transform: translate(0%,-50%);
+	z-index: 999;
+	height: 40px;
+	width: 40px;
+	box-sizing: border-box;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	text-shadow: 0 0 5px rgb(0,255,242);
+	font-size: 25px;
+	color: rgb(0,255,242);
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 100%;
+}
+.carousel-image-wrapper{
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	height: inherit;
+	display: flex;
+	justify-content: center
+}
+.carousel-image-wrapper>img{
+	padding: 0 !important;
+	border-radius: 0 !important;
+	width: auto;
+}
+.dropdown-content{
+	/*transform: scaleX(2) scaleY(0.65) translate(6%,-1px);*/
+	transform: translate(-5%,-1px);
+	width: max-content !important;
+	background-color: rgba(10,25,47,0.9);
+	color: rgba(0,255,242,1);
+	overflow-y: hidden;
+}
+.dropdown-content li > a{
+	color: rgba(0,255,242,1)
+}
+.dropdown-content li:hover{
+	background-color: rgba(10,25,47,1);
+}
+.dropdown-content li > a:hover{
+	background-color: rgb(11, 55, 60)
+}
+.dropdown-content li a i{
+	font-size: 28px
+}
+.dropdown-content li:first-child{
+	background: linear-gradient(to right, rgb(0, 101, 109)0% , rgb(18, 151, 144)100%);
+	background-size: 400% 400%;
+	animation:ts 2s infinite;
+}
+.dropdown-content li:first-child > a:hover{
+	background-color: unset;
+}
+@keyframes ts {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

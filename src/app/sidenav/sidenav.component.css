@@ -1,3 +1,21 @@
+.sidenav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+.sidenav::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Handle */
+.sidenav::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+/* Handle on hover */
+.sidenav::-webkit-scrollbar-thumb:hover {
+ display: none;
+}
 .sidenav{
 	z-index:998 !important;
 }
@@ -35,8 +53,7 @@
 	padding-right: 5px;
 	letter-spacing: 1.5px;
 	text-align: center;
-	font-weight: bold;
-	background-color: rgb(0, 255, 242);
+	background: rgb(0, 255, 242) linear-gradient(-45deg,rgba(0, 170, 123, 0.75), rgba(0, 243, 255, 0.7)) repeat scroll 0% 0%;
 	color: rgba(9, 25, 33,1);
 	height: 25px;
 	box-sizing: border-box;
@@ -72,11 +89,11 @@ footer{
 	flex-flow: column;
 	align-items: center;
 	color: rgb(0,255,242) !important;
-	font-size: 15px;
+	margin-top: -8px;
 }
 .footer-icons{
 	color: rgb(0,255,242) !important;
-	font-size: 28px;
+	font-size: 40px;
 }
 .background{
 	background-image:url('/assets/images/bg.jpg');

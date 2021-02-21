@@ -1,0 +1,41 @@
+iframe{
+	min-height: 50px;
+	background: linear-gradient(to right, rgb(136, 146, 176) 8%, rgba(10,25,47,1) 18%, rgb(136, 146, 176) 33%);
+  	animation:placeholder-loading 1s infinite;
+  	border-radius: 8px;
+  	margin-top:2rem;
+}
+@keyframes placeholder-loading {
+  0% {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: 300px 0;
+  }
+}
+.collapsible{
+	border:none;
+}
+.collapsible-header{
+	border:none;
+	background:rgba(10,46,98,1) linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)) repeat scroll 0% 0%;
+	margin:5px 0;
+	color:rgb(136, 146, 176);
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+	border-radius: 8px;
+	text-transform: capitalize;
+	letter-spacing: 1px
+}
+.collapsible-body{
+	border:none;
+	background:rgba(0,255,242,0.75) linear-gradient(-45deg,rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)) repeat scroll 0% 0%;
+	border-radius: 8px;
+	color:rgb(136, 146, 176);
+	padding-top: 0
+}
+.active .collapsible-header{
+	color:rgba(0,255,242,1) !important;
+	text-shadow: 0 0 1px rgba(0,255,242,0.3),0 0 2px rgba(0,255,242,0.8);
+	transition: all 0.2s;
+	letter-spacing: 3px
+}

@@ -1,42 +1,41 @@
 <div class="row pos">
-	<div class="col l2 m3 s3 nav-icon-padding">
-		<a routerLink="posts" class="nav-icon-a">
+	<div class="col l6 s12 offset-l3" style="display: flex;flex-flow: row;justify-content: center;">
+		<a routerLink="current" class="nav-icon-a" routerLinkActive="nav-icon-a-active">
 			<div class="nav-icon" routerLinkActive="nav-icon-active">
-				<div class="nav-top-shadow"></div>
-				<!--<ion-icon name="earth-outline"></ion-icon>-->
+				<div class="nav-top-shadow" routerLinkActive="nav-top-shadow-active"></div>
+				<i class="las la-globe-americas"></i>
+				<div routerLinkActive="nav-icon-active-text" style="display: none">Feed</div>
+			</div>
+		</a>
+		<a routerLink="entertainment" class="nav-icon-a" routerLinkActive="nav-icon-a-active">
+			<div class="nav-icon" routerLinkActive="nav-icon-active" >
+				<div class="nav-top-shadow" routerLinkActive="nav-top-shadow-active"></div>
+				<i class="las la-film"></i>
+				<div routerLinkActive="nav-icon-active-text" style="display: none">Entertainment</div>
+			</div>
+		</a>
+		<a routerLink="eresources" class="nav-icon-a" routerLinkActive="nav-icon-a-active">
+			<div class="nav-icon" routerLinkActive="nav-icon-active" >
+				<div class="nav-top-shadow" routerLinkActive="nav-top-shadow-active"></div>
+				<i class="las la-book"></i>
+				<div routerLinkActive="nav-icon-active-text" style="display: none">E Resources</div>
+			</div>
+		</a>
+		<a routerLink="fun" class="nav-icon-a" routerLinkActive="nav-icon-a-active">
+			<div class="nav-icon" routerLinkActive="nav-icon-active" >
+				<div class="nav-top-shadow" routerLinkActive="nav-top-shadow-active"></div>
+				<i class="las la-rocket"></i>
+				<div routerLinkActive="nav-icon-active-text" style="display: none">Fun Zone</div>
 			</div>
 		</a>
 	</div>
-	<div class="col l2 m3 s3 nav-icon-padding">
-		<a routerLink="entertainment" class="nav-icon-a">
-			<div class="nav-icon" routerLinkActive="nav-icon-active">
-				<div class="nav-top-shadow"></div>
-				<!--<ion-icon name="film-outline"></ion-icon>-->
-			</div>
-		</a>
-	</div>
-	<div class="col l2 m3 s3 nav-icon-padding">
-		<a routerLink="eresources" class="nav-icon-a">
-			<div class="nav-icon" routerLinkActive="nav-icon-active">
-				<div class="nav-top-shadow"></div>
-				<!--<ion-icon name="library-outline"></ion-icon>-->
-			</div>
-		</a>
-	</div>
-	<div class="col l2 m3 s3 nav-icon-padding">
-		<a routerLink="fun" class="nav-icon-a">
-			<div class="nav-icon" routerLinkActive="nav-icon-active">
-				<div class="nav-top-shadow"></div>
-				<!--<ion-icon name="rocket-outline"></ion-icon>-->
-			</div>
-		</a>
-	</div>
-	<div class="col l4 hide-on-med-and-down">
-		<a href="#" class="nav-icon-a">
-			<div class="nav-icon-search">
-				<div class="nav-top-shadow nav-top-shadow-search"></div>
-				<!--<ion-icon name="search-outline"></ion-icon>-->
-			</div>
-		</a>
+	<div class="col l3 hide-on-med-and-down">
+		<!--<form [formGroup]="searchForm">-->
+	        <div class="input-field col l11" style="display: flex;flex-flow: row;align-items: center">
+	          <input id="icon_prefix" type="text" class="validate browser-default search-input" placeholder="Search Cosmos"  style="order: 2">
+	          <i class="material-icons search-input-icon" style="order: 1">search</i>
+	          <i class="material-icons search-input-clear" style="order: 3">close</i>
+	        </div>
+        <!--</form>-->
 	</div>
 </div>

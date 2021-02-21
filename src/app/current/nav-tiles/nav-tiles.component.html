@@ -1,1 +1,12 @@
-<p>nav-tiles works!</p>
+<div class="row">
+	<div class="col s10 offset-s1">
+		<ul class="nav-tile-wrapper">
+			<li><a class="truncate" routerLink="live" routerLinkActive="nav-tile-activated">
+					<span class="live-dot">&bull;</span>Breaking
+				</a>
+			</li>
+			<li><a class="truncate" routerLink="blogs" routerLinkActive="nav-tile-activated">Blogs</a></li>
+		</ul>
+	</div>
+</div>
+<router-outlet (activate)="onActivate($event)"></router-outlet>

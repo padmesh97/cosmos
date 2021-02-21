@@ -1,13 +1,107 @@
-<div class="row">
-	<div class="col s-12 l10 offset-l1">
-		<div class="card dark-blue-bg">
-			<div class="card-heading">
-				E-Resources
+<div class="row" style="display: flex;justify-content: center;">
+	<div class="col s12 l10 offset-l1" style="margin: 0;">
+
+		<div id="ebooks-loader" class="library-wrapper" *ngIf="library_status!=='success'" style="justify-content: center;">
+			<div class="library-book-wrapper" style="flex-basis: 80%;margin:0">
+				<div class="library-book" style="padding:5rem 0;">
+					<img src="assets/images/book-loading.gif" style="border-radius: 10px;width: 100%" *ngIf="library_status==='loading'">
+					<div *ngIf="library_status==='error'" class="card-panel error">
+				        <span class="white-text">
+				        	<i class="las la-exclamation-triangle" style="font-size: 4rem"></i>
+				        	<br><br>
+				        	Something went wrong<br>Please check your connection or retry later
+				        </span>
+				    </div>
+				</div>
 			</div>
-			<div class="divider"></div>
-			<div class="card-text">
-				<h1><i class="material-icons large">library_books</i></h1>We are working on this !!!<br> <h2>Will be releasing soon</h2>
+		</div>
+
+
+		<div class="library-wrapper" *ngIf="library_status==='success'">
+			<div class="library-book-wrapper" *ngFor='let ebook of ebooks_list'>
+				<div class="library-background"></div>
+				<div class="library-light-picker" (click)=openEbook($event,ebook.ebook_id,ebook.total_pages)></div>
+				<div class="library-book">
+					<img src="{{API_URL+'assets/ebooks/'+ebook.ebook_id+'/'+ebook.ebook_id+'-cover.jpg'}}">
+				</div>
+				<div class="book-stand"></div>
 			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="ebook-open-screen">
+	<div class="row" style="margin-bottom:0">
+		<div class="close-row">
+			<div class="close-wrapper">
+				<button (click)="toggleEbookScreen()" class="close">
+					<i class="las la-times"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<ul class="ebook-options-wrapper">
+			<li>
+				Go to page :<input class="browser-default" type="text" maxlength="4" id="goto-page" name="goto-page" placeholder="--" (keyup)="showPage(0)">/{{pagesCount}}
+			</li>
+			<li (click)="showPage(1)">Goto Start</li>
+			<li (click)="showPage(2)">Goto End</li>
+			<li (click)="zoomPage('in')"><i class="las la-search-plus"></i></li>
+			<li (click)="zoomPage('out')"><i class="las la-search-minus"></i></li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col s12 m8 offset-m2" style="position: relative;">
+			<div class="loader-wrapper">
+				<svg style="position : absolute;left :50%;top : 50%;transform: translate(-49px,0);-webkit-transform:rotateY(180deg) scale(0.8);-o-transform:rotateY(180deg) scale(0.8);-ms-transform:rotateY(180deg) scale(0.8);-moz-transform:rotateY(180deg) scale(0.8);transform:rotateY(180deg) scale(0.8);-webkit-transform-origin : 0 0;-o-transform-origin : 0 0;-ms-transform-origin : 0 0;-moz-transform-origin : 0 0;transform-origin : 0 0;" viewBox="130 0 800 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2478" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="56">
+					<path d="M835.55027 48.761905C876.805122 48.761905 910.222223 81.441158 910.222223 121.753604L910.222223 902.095C910.222223 902.095 910.222223 942.409011 876.805 975.238095L113.777778 975.238095 113.777778 24.380952 88.888889 48.761905 835.55027 48.761905ZM64 0 64 24.380952 64 1024L960 1024C835.55027 1024 904.277615 1024 960 969.325498L960 54.49204C960 54.49204 904.277615 0 835.55027 0L88.888889 0 64 0Z" p-id="2479"></path><path d="M775.164361 219.428572C788.910114 219.428572 800.05325 208.512847 800.05325 195.047619 800.05325 181.582391 788.910114 170.666667 775.164361 170.666667L263.111111 170.666667C249.365357 170.666667 238.222222 181.582391 238.222222 195.047619 238.222222 208.512847 249.365357 219.428572 263.111111 219.428572L775.164361 219.428572Z" p-id="2481"></path><path d="M775.164361 365.714285C788.910114 365.714285 800.05325 354.798562 800.05325 341.333333 800.05325 327.868105 788.910114 316.952382 775.164361 316.952382L263.111111 316.952382C249.365357 316.952382 238.222222 327.868105 238.222222 341.333333 238.222222 354.798562 249.365357 365.714285 263.111111 365.714285L775.164361 365.714285Z" p-id="2482"></path><path d="M775.164361 536.380951C788.910114 536.380951 800.05325 525.465229 800.05325 512 800.05325 498.534771 788.910114 487.619049 775.164361 487.619049L263.111111 487.619049C249.365357 487.619049 238.222222 498.534771 238.222222 512 238.222222 525.465229 249.365357 536.380951 263.111111 536.380951L775.164361 536.380951Z" p-id="2483"></path>
+				</svg>
+				<svg style="position : absolute;left :50%;top : 50%;-webkit-transform:rotateY(0) scale(0.8);-o-transform:rotateY(0) scale(0.8);-ms-transform:rotateY(0) scale(0.8);-moz-transform:rotateY(0) scale(0.8);transform:rotateY(0) scale(0.8);-webkit-transform-origin : 0 0;-o-transform-origin : 0 0;-ms-transform-origin : 0 0;-moz-transform-origin : 0 0;transform-origin : 0 0;" viewBox="130 0 800 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2478" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="56">
+					<path d="M835.55027 48.761905C876.805122 48.761905 910.222223 81.441158 910.222223 121.753604L910.222223 902.095C910.222223 902.095 910.222223 942.409011 876.805 975.238095L113.777778 975.238095 113.777778 24.380952 88.888889 48.761905 835.55027 48.761905ZM64 0 64 24.380952 64 1024L960 1024C835.55027 1024 904.277615 1024 960 969.325498L960 54.49204C960 54.49204 904.277615 0 835.55027 0L88.888889 0 64 0Z" p-id="2479"></path><path d="M775.164361 219.428572C788.910114 219.428572 800.05325 208.512847 800.05325 195.047619 800.05325 181.582391 788.910114 170.666667 775.164361 170.666667L263.111111 170.666667C249.365357 170.666667 238.222222 181.582391 238.222222 195.047619 238.222222 208.512847 249.365357 219.428572 263.111111 219.428572L775.164361 219.428572Z" p-id="2481"></path><path d="M775.164361 365.714285C788.910114 365.714285 800.05325 354.798562 800.05325 341.333333 800.05325 327.868105 788.910114 316.952382 775.164361 316.952382L263.111111 316.952382C249.365357 316.952382 238.222222 327.868105 238.222222 341.333333 238.222222 354.798562 249.365357 365.714285 263.111111 365.714285L775.164361 365.714285Z" p-id="2482"></path><path d="M775.164361 536.380951C788.910114 536.380951 800.05325 525.465229 800.05325 512 800.05325 498.534771 788.910114 487.619049 775.164361 487.619049L263.111111 487.619049C249.365357 487.619049 238.222222 498.534771 238.222222 512 238.222222 525.465229 249.365357 536.380951 263.111111 536.380951L775.164361 536.380951Z" p-id="2483"></path>
+				</svg>
+				<svg class="loadingRun" style="position : absolute;left :50%;top : 50%;-webkit-transform:rotateY(0) scale(0.8);-o-transform:rotateY(0) scale(0.8);-ms-transform:rotateY(0) scale(0.8);-moz-transform:rotateY(0) scale(0.8);transform:rotateY(0) scale(0.8);-webkit-transform-origin : 0 0;-o-transform-origin : 0 0;-ms-transform-origin : 0 0;-moz-transform-origin : 0 0;transform-origin : 0 0;" viewBox="130 0 800 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2478" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="56">
+					<path d="M835.55027 48.761905C876.805122 48.761905 910.222223 81.441158 910.222223 121.753604L910.222223 902.095C910.222223 902.095 910.222223 942.409011 876.805 975.238095L113.777778 975.238095 113.777778 24.380952 88.888889 48.761905 835.55027 48.761905ZM64 0 64 24.380952 64 1024L960 1024C835.55027 1024 904.277615 1024 960 969.325498L960 54.49204C960 54.49204 904.277615 0 835.55027 0L88.888889 0 64 0Z" p-id="2479"></path><path d="M775.164361 219.428572C788.910114 219.428572 800.05325 208.512847 800.05325 195.047619 800.05325 181.582391 788.910114 170.666667 775.164361 170.666667L263.111111 170.666667C249.365357 170.666667 238.222222 181.582391 238.222222 195.047619 238.222222 208.512847 249.365357 219.428572 263.111111 219.428572L775.164361 219.428572Z" p-id="2481"></path><path d="M775.164361 365.714285C788.910114 365.714285 800.05325 354.798562 800.05325 341.333333 800.05325 327.868105 788.910114 316.952382 775.164361 316.952382L263.111111 316.952382C249.365357 316.952382 238.222222 327.868105 238.222222 341.333333 238.222222 354.798562 249.365357 365.714285 263.111111 365.714285L775.164361 365.714285Z" p-id="2482"></path><path d="M775.164361 536.380951C788.910114 536.380951 800.05325 525.465229 800.05325 512 800.05325 498.534771 788.910114 487.619049 775.164361 487.619049L263.111111 487.619049C249.365357 487.619049 238.222222 498.534771 238.222222 512 238.222222 525.465229 249.365357 536.380951 263.111111 536.380951L775.164361 536.380951Z" p-id="2483"></path>
+				</svg>
+				<div class="loading-text">Loading Ebook&nbsp;...</div>
+			</div>
+
+			<!-- <div class="example-pdf-page">
+				<pdf-viewer id="example-pdf-page"  [src]="src" [original-size]="false" [page]="1" [show-all]="false" [render-text]="false" (after-load-complete)="afterBookLoaded($event)" (page-rendered)="afterPageLoaded($event)" ></pdf-viewer>
+			</div> -->
+
+
+			<div class="change-page-control-wrapper-left" id="page-left-control" (click)="showPreviousPage()">
+				<i class="las la-angle-left"></i>
+			</div>
+			<div class="change-page-control-wrapper-right" id="page-right-control" (click)="showNextPage()">
+				<i class="las la-angle-right"></i>
+			</div>
+
+			<!-- <div class="book-container" id="book-container">
+				<div class="hard" style="background-image:url('/assets/images/cover.jpg');background-size: cover;">
+				</div>
+				<div class="hard" style="background-color:rgb(200,200,220)"></div>
+				<div *ngFor="let pageno of totalPages">
+					<pdf-viewer  [src]="src" [original-size]="false" [page]="pageno" [show-all]="false" [render-text]="false"></pdf-viewer>
+				</div>
+				<div class="hard" style="background-color:rgb(200,200,220)"></div>
+				<div class="hard" style="background-image:url('/assets/images/last_cover.jpg');background-size: cover;">
+				</div>
+			</div> -->
+
+			<div class="book-container" id="book-container">
+				
+				<div [class.hard]="pagesCount%2!==0 && i==pagesCount-1" *ngFor="let page of totalPages;let i = index">
+					<img id="ebook-page-{{i+1}}" [src]="getPageLink(i+1)" (load)="ebookPageLoaded($event,i+1)">
+					<div *ngIf="i%2==0" class="odd-page-shadow"></div>
+					<div *ngIf="i%2!=0" class="even-page-shadow"></div>
+				</div>
+				
+			</div>
+
+
 		</div>
 	</div>
 </div>
