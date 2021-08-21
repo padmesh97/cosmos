@@ -12,6 +12,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     CommonModule,
     BooksRoutingModule,
     PdfViewerModule
+  ],
+  exports: [
+  	BooksCardComponent
   ]
 })
 export class BooksModule { }

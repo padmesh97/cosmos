@@ -18,9 +18,14 @@
 <div class="search-screen hide-on-large-only" [ngClass]="{'hide': searchScreenActivated == false}">
 	<div class="row">
 		<div class="input-field col s12" style="display: flex;flex-flow: row;align-items: center">
-          <input id="icon_prefix" type="text" class="validate browser-default search-input" placeholder="Search Cosmos"  style="order: 2" autofocus>
-          <i class="material-icons search-input-icon" (click)="searchScreenActivate()" [ngClass]="{'search-input-icon-activate': searchScreenActivated == true}" style="order: 1">keyboard_backspace</i>
-          <i class="material-icons search-input-clear" style="order: 3">close</i>
+			<input id="master_search_mobile" type="text" class="validate browser-default search-input" placeholder="Search Cosmos"  style="order: 2" autofocus>
+			<i class="material-icons search-input-icon" (click)="searchScreenActivate()" [ngClass]="{'search-input-icon-activate': searchScreenActivated == true}" style="order: 1">keyboard_backspace</i>
+			<i class="material-icons search-input-clear" style="order: 3">close</i>
         </div>
+
+        <div style="height: 11vh"></div>
+
+        <app-search></app-search>
+
 	</div>
 </div>

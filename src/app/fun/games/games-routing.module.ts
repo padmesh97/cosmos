@@ -4,7 +4,7 @@ import {GamesCardComponent} from './games-card/games-card.component';
 
 const routes: Routes = [
 {
-	path:'fun',component:GamesCardComponent
+	path:'coming-soon',component:GamesCardComponent
 }
 ];
 

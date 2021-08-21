@@ -1,70 +1,43 @@
 <div class="row">
-	<div class="container">
-	  <figure>
+	<div class="col s12 centered" *ngIf="galleryListStatus!=='success'">
+
+		<!-- Pre Loader -->
+		<div class="preloader-wrapper big active" *ngIf="galleryListStatus==='loading'">
+	    	<div class="spinner-layer spinner-blue-only">
+	      		<div class="circle-clipper left">
+	        		<div class="circle"></div>
+	      		</div>
+	      		<div class="gap-patch">
+	        		<div class="circle"></div>
+	    		</div>
+	    		<div class="circle-clipper right">
+	        		<div class="circle"></div>
+	    		</div>
+	    	</div>
+	 	</div>
+
+		<!-- Error Card -->
+		<div *ngIf="galleryListStatus==='error'" class="card-panel error">
+		    <span class="white-text">
+	        	<i class="las la-exclamation-triangle" style="font-size: 4rem"></i>
+	        	<br><br>
+	        	Something went wrong<br>Please check your connection or retry later
+	        </span>
+		</div>
+	</div>
+
+
+	<div class="col s10 offset-s1" *ngIf="isSearched">
+		<img src={{item.wallpaper_link}} class="materialboxed" style="margin:8% auto;border-radius: 10px" *ngFor="let item of galleryList;let i=index">
+	</div>
+
+
+	<div class="container" *ngIf="!isSearched">
+	  <figure *ngFor="let item of galleryList;let i=index">
 	  	<div class="placeholder">Loading...</div>
 	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/windmill.jpg" />
-	    <figcaption><a href="#">1</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/suspension-bridge.jpg"/>
-	    <figcaption><a href="#">2</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/sunset.jpg" />
-	    <figcaption><a href="#">3</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/snowy.jpg"/>
-	    <figcaption><a href="#">4</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/bristol-balloons1.jpg"/>
-	    <figcaption><a href="#">5</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/dog-balloon.jpg" />
-	    <figcaption><a href="#">6</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/abq-balloons.jpg"/>
-	    <figcaption><a href="#">7</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/disney-balloon.jpg"/>
-	    <figcaption><a href="#">8</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/bristol-harbor.jpg"/>
-	    <figcaption><a href="#">9</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	    <img class="materialboxed" src="https://assets.codepen.io/12005/bristol-balloons2.jpg"/>
-	    <figcaption><a href="#">10</a></figcaption>
-	  </figure>
-	  <figure>
-	  	<div class="placeholder">Loading...</div>
-	  	<div class="placeholder-mask"></div>
-	  	<img class="materialboxed" src="https://assets.codepen.io/12005/toronto.jpg"/>
-	    <figcaption><a href="#">11</a></figcaption>
+	    <img class="materialboxed" loading="lazy" src={{item.wallpaper_link}} />
+	    <figcaption><a href="#">{{i}}</a></figcaption>
 	  </figure>
 	</div>
 </div>

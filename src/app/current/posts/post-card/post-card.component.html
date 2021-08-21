@@ -20,8 +20,10 @@
 	<!-- Error Card -->
 		<div *ngIf="received==='error'" class="card-panel error">
 		    <span class="white-text">
-		    	Error Occured. Please Retry.
-		    </span>
+	        	<i class="las la-exclamation-triangle" style="font-size: 4rem"></i>
+	        	<br><br>
+	        	Something went wrong<br>Please check your connection or retry later
+	        </span>
 		</div>
 
 
@@ -85,19 +87,21 @@
 			</div>
 
 			<div class="card-content" *ngIf="item.type!=='content'">
-				<div class="row">
-					<div class="col s7" style="display: flex;align-items: center;overflow: auto;white-space: nowrap;text-transform:">
+				<div class="row" style="margin-bottom:0">
+					<div class="col s7" style="overflow: auto;white-space: nowrap;text-transform:">
 						<!--<span class="grey-text text-darken-4 credits">Credits: </span>-->
-						<div class="credits-logo"><i class="lab la-instagram"></i></div>
-						<a class="author" href="https://www.instagram.com/{{item.post_author}}" title="Instagram - {{item.post_author}}">@{{item.post_author}}</a>
+						<a class="credit-wrapper"href="https://www.instagram.com/{{item.post_author}}" title="Instagram - {{item.post_author}}">
+							<div class="credits-logo"><i class="lab la-instagram"></i></div>
+							<div class="author">@{{item.post_author}}</div>
+						</a>
 					</div>
 					<div class="col s5">
-			  			<a class="right" target="_blank"><button class="activator btn-concave"><i class="material-icons" style="font-size: 17px;vertical-align: middle;">filter_vintage</i>&nbsp;Caption</button></a>
+			  			<a class="right" target="_blank"><button class="activator btn-concave"><i style="font-size: 17px" class="las la-ellipsis-h"></i><!-- <i class="material-icons" style="font-size: 17px;vertical-align: middle;">filter_vintage</i>&nbsp;Caption --></button></a>
 			  		</div>
 			  	</div>
 			</div>
 			<div class="card-reveal dark-blue-bg">
-			  <span class="card-title white-text"><i class="material-icons" style="vertical-align: middle;">filter_vintage</i>&nbsp;Caption<i class="material-icons right">close</i></span>
+			  <span class="card-title white-text"><i class="material-icons" style="vertical-align: middle;">filter_vintage</i>&nbsp;Caption <i class="material-icons right">close</i></span>
 			  <p [innerHTML]="item.post_caption | emoji" class="white-text" style="font-weight:100 !important"></p>
 			</div>
 		</div>

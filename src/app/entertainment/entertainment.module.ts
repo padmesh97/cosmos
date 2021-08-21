@@ -16,6 +16,11 @@ import { PicsModule} from './pics/pics.module';
     MoviesModule,
     MusicModule,
     PicsModule
+  ],
+  exports: [
+  MoviesModule,
+  MusicModule,
+  PicsModule
   ]
 })
 export class EntertainmentModule { }

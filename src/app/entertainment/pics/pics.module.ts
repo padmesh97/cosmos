@@ -10,6 +10,9 @@ import { PicsCardComponent } from './pics-card/pics-card.component';
   imports: [
     CommonModule,
     PicsRoutingModule
+  ],
+  exports: [
+  	PicsCardComponent
   ]
 })
 export class PicsModule { }

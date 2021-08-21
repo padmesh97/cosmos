@@ -22,7 +22,9 @@
 .nav-tile-wrapper li{
 	width:33%;
 	margin:0 10px;
-	background-size:cover;
+	background-repeat: no-repeat;
+	background-size: 100% 92% ;
+	background-position-x: 5px;
 	border-radius: 25px;
 	box-sizing: border-box;
 }

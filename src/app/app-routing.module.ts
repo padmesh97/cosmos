@@ -5,7 +5,8 @@ import {PublishComponent} from './publish/publish.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {ReleasesComponent} from './releases/releases.component';
-
+import {SearchResultsComponent} from './search-results/search-results.component';
+import {TermsAndPrivacyComponent} from './terms-and-privacy/terms-and-privacy.component';
 
 const routes: Routes = [
 {
@@ -22,6 +23,12 @@ const routes: Routes = [
 },
 {
 	path:'releases',component:ReleasesComponent
+},
+{
+	path:'search_result/:filter/:uuid',component:SearchResultsComponent
+},
+{
+	path:'terms-and-privacy',component:TermsAndPrivacyComponent
 },
 // {
 // 	path: '**', component: PageNotFoundComponent

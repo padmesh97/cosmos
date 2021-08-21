@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import {Title } from '@angular/platform-browser';
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 declare var $:any;
@@ -10,8 +11,12 @@ declare var $:any;
 })
 export class BooksCardComponent implements OnInit {
 
-	constructor(private http: HttpClient) { }
-  
+	constructor(private http: HttpClient,private titleService:Title) {
+		this.titleService.setTitle("Ebooks | Cosmos");
+	}
+
+  	@Input() childMessageEbook: any={};
+
   	API_URL= environment.API_URL;
   	ebookInitialized=false;
   	ebooks_list;
@@ -29,7 +34,8 @@ export class BooksCardComponent implements OnInit {
   	url=this.API_URL+'index.php/eresources/ebook_list/all';
 
 	ngOnInit(): void {
-		this.http.get(this.url).subscribe(data => {
+		if(Object.keys(this.childMessageEbook).length == 0){
+	      this.http.get(this.url).subscribe(data => {
 	        this.ebooks_list = data;
 	        this.library_status='success';
 	      },
@@ -37,10 +43,15 @@ export class BooksCardComponent implements OnInit {
 	      {
 	      	this.library_status='error';
 	      });
+	  	}
+	    else{
+	      this.ebooks_list=this.childMessageEbook;
+	      this.library_status='success';
+	    }
+		
 	}
 
 	openEbook(event,id,pages){
-		console.log(event);
 		this.totalPages=[];
 		this.toggleEbookScreen();
 

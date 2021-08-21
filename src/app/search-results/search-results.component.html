@@ -1,0 +1,27 @@
+<section *ngIf="searchResultStatus !== 'loading'" style="margin: 2rem 0">
+	<div class="col s11 search-section">
+		<div class="search-icon">
+			<i class="material-icons search-input-icon">search</i>
+		</div>
+
+		<div class="search-text">
+			Search Results > <span class="">{{search_filter}}</span>
+		</div>
+	</div>
+</section>
+
+<section *ngIf="isSearchResultContain('blogs')">
+	<app-post-card [childMessageBlogs]="childMessage"></app-post-card>
+</section>
+<section *ngIf="isSearchResultContain('movies')">
+	<app-movies-card [childMessageMovies]="childMessage"></app-movies-card>
+</section>
+<section *ngIf="isSearchResultContain('music')">
+	<app-music-card [childMessageMusic]="childMessage"></app-music-card>
+</section>
+<section *ngIf="isSearchResultContain('gallery')">
+	<app-pics-card [childMessageGallery]="childMessage"></app-pics-card>
+</section>
+<section *ngIf="isSearchResultContain('ebooks')">
+	<app-books-card [childMessageEbook]="childMessage"></app-books-card>
+</section>

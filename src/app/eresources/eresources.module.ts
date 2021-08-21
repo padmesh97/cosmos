@@ -12,6 +12,9 @@ import {BooksModule} from './books/books.module';
     CommonModule,
     EresourcesRoutingModule,
     BooksModule
+  ],
+  exports: [
+  BooksModule
   ]
 })
 export class EresourcesModule { }

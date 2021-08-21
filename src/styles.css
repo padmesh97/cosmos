@@ -9,19 +9,32 @@
     font-weight: bold;
     src: url("assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");
 }
+
+@font-face {
+  font-family: 'Noto_Color_Emoji';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://gitcdn.xyz/repo/googlefonts/noto-emoji/master/fonts/NotoColorEmoji.ttf");
+}
+@font-face {
+  font-family: 'NotoColorEmoji';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/NotoColorEmoji.ttf') format('truetype')
+}
 ::selection{
-	background-color: rgb(33,94,101);
+	background-color: rgba(0,0,0,0.3);
+	text-shadow: 0 0 5px 5px rgba(0,255,242,1.0);
 }
 html,body{
-	font-family: 'lato', sans-serif !important;
-	/*font-family: Acumin,sans-serif !important;*/
+	font-family: 'Poppins','Noto_Color_Emoji',sans-serif !important;
 	min-width: 360px;
 	background-color: rgba(10,25,47,1);
-	/*background-image: url(/assets/images/galaxy.gif);
+	background-image: url(/assets/images/galaxy.gif);
 	background-size: contain;
-	background-attachment: fixed;*/
-	scrollbar-color: rgba(10,25,47,0.1) rgba(10,25,47,0.1);
-  	scrollbar-width: none;
+	background-attachment: fixed;
+	scrollbar-color: rgba(10,25,47,0.5) rgba(10,25,47,0.6);
+  scrollbar-width: none;
 }
 a{
  	outline: none !important;
@@ -56,6 +69,7 @@ a{
 }
 ::-webkit-scrollbar {
   width: 10px;
+  cursor: pointer !important;
 }
 
 /* Track */
@@ -65,12 +79,13 @@ a{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:rgba(58, 73, 84, 0.1);
+  background:rgba(58, 73, 84, 0.5);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(58, 73, 84, 0.1);
+  background: rgba(58, 73, 84, 0.8);
+  filter: brightness(80%);
 }
 .btn-concave{
 	background: linear-gradient(145deg, rgba(6,17,34,1),rgba(12,45,90,1));

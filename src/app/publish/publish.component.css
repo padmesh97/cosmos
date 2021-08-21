@@ -7,7 +7,8 @@
 	width:100%;
 	background-color: rgba(10,25,47,0.97);
 	box-sizing: border-box;
-	overflow:auto;
+	overflow-y:scroll;
+	overflow-x: hidden;
 }
 .success{
 	background: rgba(10,25,47,1) !important;

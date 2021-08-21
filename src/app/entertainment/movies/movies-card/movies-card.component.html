@@ -1,45 +1,71 @@
 <div class="row">
+	<div class="col s12 centered" *ngIf="moviesListStatus!=='success'">
+
+		<!-- Pre Loader -->
+		<div class="preloader-wrapper big active" *ngIf="moviesListStatus==='loading'">
+	    	<div class="spinner-layer spinner-blue-only">
+	      		<div class="circle-clipper left">
+	        		<div class="circle"></div>
+	      		</div>
+	      		<div class="gap-patch">
+	        		<div class="circle"></div>
+	    		</div>
+	    		<div class="circle-clipper right">
+	        		<div class="circle"></div>
+	    		</div>
+	    	</div>
+	 	</div>
+
+		<!-- Error Card -->
+		<div *ngIf="moviesListStatus==='error'" class="card-panel error">
+			<span class="white-text">
+	        	<i class="las la-exclamation-triangle" style="font-size: 4rem"></i>
+	        	<br><br>
+	        	Something went wrong<br>Please check your connection or retry later
+	        </span>
+		</div>
+	</div>
+
 	<div class="col s12">
-		<div class="card dark-blue-bg">
+
+		<div class="card dark-blue-bg" *ngFor="let item of moviesList;let i=index">
 			<div class="row row-movie-title">
 				<div class="col s9 movie-title">
-					Interstellar (2014)
+					{{item.movie_title}} - {{item.movie_year}}
 				</div>
 				<div class="col s3 movie-duration">
-					2hr 48min
+					{{item.movie_duration}} min
 				</div>
 			</div>
 			<div class="row" style="display: table-row;">
 				<div class="movie-poster">
 					<div class="placeholder">Loading...</div>
-					<img (load)="onPosterLoad($event)" src="https://i.pinimg.com/originals/c6/d4/e2/c6d4e2803a467b99ede238fee57441a7.jpg">
+					<img (load)="onPosterLoad($event)" src="{{item.movie_poster_link}}">
 				</div>
 				<div class="movie-trailer">
 					<div class="placeholder">Loading...</div>
-					<iframe style="width:100%" src="https://www.youtube.com/embed/zSWdZVtXT7E" frameborder="0" allowfullscreen></iframe>
+					<iframe style="width:100%" [src]="sanitizer.bypassSecurityTrustResourceUrl(item.movie_youtube_link)" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col s12 movie-description">
 					<div class="bg-inset" style="padding:1rem">
 						<ul class="genre">
-							<li>Adventure</li>
-							<li>Sci-Fi</li>
-							<li>Drama</li>
+							<li *ngFor="let genre of item.movie_genres | jsonparse">{{genre}}</li>
 						</ul>
-						A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.<br><br>
-						Directed by - <span class="director-name">Christopher Nolan</span>
+						{{item.movie_description}}<br><br>
+						Directed by - <span class="director-name">{{item.movie_director}}</span>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col s6 movie-imdb">
 					<img src="assets/images/imdb_logo.png" height="20">
-					<span class="rating">8.6/10</span>
+					<span class="rating">{{item.movie_imdb}}/10</span>
 				</div>
 				<div class="col s6 movie-rotten">
 					<img src="assets/images/rotten_tomatoes_logo.png"  height="20">
-					<span class="rating">85%</span>
+					<span class="rating">{{item.movie_rotten}}%</span>
 				</div>
 			</div>
 		</div>

@@ -17,9 +17,9 @@
 			<ng-container  *ngIf="picOfDayStatus=='success'">
 				<div class="pic-of-day-title">{{picOfDayList.title}}</div>
 				<div class="video-container" *ngIf="picOfDayList.media_type==='video'">
-					<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(picOfDayList.url)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%;border-radius:10px;height:100%"></iframe>
+					<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(picOfDayList.url)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%;height:100%"></iframe>
 				</div>
-				<img class="responsive-img" src="{{picOfDayList.url}}" *ngIf="picOfDayList.media_type==='image'" style="border-radius:10px">
+				<img class="responsive-img materialboxed" src="{{picOfDayList.url}}" *ngIf="picOfDayList.media_type==='image'">
 				<div class="pic-of-day-text">{{picOfDayList.explanation}}</div>
 			</ng-container>
 		</div>
@@ -54,12 +54,12 @@
 			<hr>
 		</div>
 		<div class="space-news-wrapper" *ngIf="spaceNewsStatus=='success'">
-			<div class="space-news" *ngFor="let item of spaceNewsList.docs">
-				<img [src]="item.featured_image">
+			<div class="space-news" *ngFor="let item of spaceNewsList">
+				<img [src]="item.imageUrl">
 				<div class="space-news-title">{{item.title}}</div>
 				<div class="space-news-source-time">
-					<span class="space-news-source">{{item.news_site_long}}</span>
-					<span class="space-news-time" [textContent]="'&nbsp;&nbsp;&#8213;&nbsp;&nbsp;'+spaceNewsTimeList[item.date_published]"></span>
+					<span class="space-news-source">{{item.summary}}</span>
+					<span class="space-news-time" [textContent]="'&nbsp;&nbsp;&#8213;&nbsp;&nbsp;'+spaceNewsTimeList[item.publishedAt]"></span>
 				</div>
 				<a class="space-new-link" [href]="item.url" target="_blank">
 					<button>View More</button>

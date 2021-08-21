@@ -33,7 +33,7 @@
               "node_modules/materialize-css/dist/js/materialize.min.js",
               "src/assets/turnjs4/lib/turn.min.js",
               "src/assets/turnjs4/lib/zoom.min.js",
-              "src/assets/christmas/snowstorm-min.js"
+              // "src/assets/christmas/snowstorm-min.js"
             ]
           },
           "configurations": {

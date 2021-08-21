@@ -1,0 +1,42 @@
+.search-section{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.search-icon,.search-icon > i ,.search-text{
+	color:rgb(136, 146, 176);
+	line-height: 30px;
+}
+.search-icon{
+	padding-top: 3px;
+	line-height: 3.5rem;
+	display: flex;
+	align-items: center;
+	animation: search-icon-animate 0.5s ease;
+}
+.search-icon > i{
+	font-size: 3rem;
+}
+@keyframes search-icon-animate {
+	0% {
+		transform: translateX(-30px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}
+.search-text{
+	padding-left:15px;
+	line-height: 3.5rem;
+	font-size: 2rem;
+	text-transform: capitalize;
+	animation: search-text-animate 0.5s ease;
+}
+@keyframes search-text-animate {
+	0% {
+		transform: translateX(30px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}

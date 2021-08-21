@@ -21,21 +21,27 @@
 				<div routerLinkActive="nav-icon-active-text" style="display: none">E Resources</div>
 			</div>
 		</a>
-		<a routerLink="fun" class="nav-icon-a" routerLinkActive="nav-icon-a-active">
+		<a routerLink="coming-soon" class="nav-icon-a" routerLinkActive="nav-icon-a-active">
 			<div class="nav-icon" routerLinkActive="nav-icon-active" >
 				<div class="nav-top-shadow" routerLinkActive="nav-top-shadow-active"></div>
 				<i class="las la-rocket"></i>
-				<div routerLinkActive="nav-icon-active-text" style="display: none">Fun Zone</div>
+				<div routerLinkActive="nav-icon-active-text" style="display: none">COMING SOON</div>
 			</div>
 		</a>
 	</div>
 	<div class="col l3 hide-on-med-and-down">
-		<!--<form [formGroup]="searchForm">-->
-	        <div class="input-field col l11" style="display: flex;flex-flow: row;align-items: center">
-	          <input id="icon_prefix" type="text" class="validate browser-default search-input" placeholder="Search Cosmos"  style="order: 2">
-	          <i class="material-icons search-input-icon" style="order: 1">search</i>
-	          <i class="material-icons search-input-clear" style="order: 3">close</i>
-	        </div>
-        <!--</form>-->
+        <div class="input-field col l11" id="master_search_desktop_wrapper" style="display: flex;flex-flow: row;align-items: center;z-index: 3">
+          <input id="master_search_desktop" type="text" class="validate browser-default search-input" placeholder="Search Cosmos" style="order: 2">
+          <i class="material-icons search-input-icon" style="order: 1">search</i>
+          <i class="material-icons search-input-clear" style="order: 3">close</i>
+        </div>
+
+        <div class="col l12 dark-blue-bg search-result-area" id="master_search_results_desktop" style="z-index: 1;display: none">
+
+        	<div style="position: sticky;top:0;left:0;height: 10vh;z-index: 2"></div>
+
+        	<app-search></app-search>
+
+		</div>
 	</div>
 </div>

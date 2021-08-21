@@ -1,0 +1,149 @@
+<ul class="search-result-filter-wrapper" id="search_filter_list">
+	<li class="search-result-filter" [class.search-result-filter-active]="isFilterArrayContain('blogs')" (click)="modifyFilterArray('blogs')">
+		<i class="las la-newspaper"></i>Blogs
+	</li>
+	<li class="search-result-filter" [class.search-result-filter-active]="isFilterArrayContain('movies')" (click)="modifyFilterArray('movies')">
+		<i class="las la-play-circle"></i>Movies
+	</li>
+	<li class="search-result-filter" [class.search-result-filter-active]="isFilterArrayContain('music')" (click)="modifyFilterArray('music')">
+		<i class="las la-music"></i>Music
+	</li>
+	<li class="search-result-filter" [class.search-result-filter-active]="isFilterArrayContain('gallery')" (click)="modifyFilterArray('gallery')">
+		<i class="las la-grip-horizontal"></i>Gallery
+	</li>
+	<li class="search-result-filter" [class.search-result-filter-active]="isFilterArrayContain('ebooks')"  (click)="modifyFilterArray('ebooks')">
+		<i class="las la-book-reader"></i>Ebooks
+	</li>
+</ul>	
+<hr>
+
+<section class="search-preloader-placeholder">
+	<!-- Pre Loader -->
+	<div class="preloader-wrapper big active" *ngIf="resultListStatus==='loading'">
+    	<div class="spinner-layer spinner-blue-only">
+      		<div class="circle-clipper left">
+        		<div class="circle"></div>
+      		</div>
+      		<div class="gap-patch">
+        		<div class="circle"></div>
+    		</div>
+    		<div class="circle-clipper right">
+        		<div class="circle"></div>
+    		</div>
+    	</div>
+ 	</div>
+
+	<!-- Error Card -->
+	<div *ngIf="resultListStatus==='error'" class="card-panel error white-text">
+    	<i class="las la-exclamation-triangle"></i>
+    	Something went wrong
+	</div>
+
+	<!-- Idle position -->
+
+	<div class="search-placeholder" *ngIf="resultListStatus==='idle'">
+		<i class="las la-star"></i> Search something exciting
+	</div>
+
+
+
+	<!-- No searches found placeholder-->
+	<div class="search-placeholder" *ngIf="resultListStatus==='empty_success'">
+		<i class="las la-frown"></i> No searches found
+	</div>
+
+</section>
+
+<section class="search-result-wrapper" *ngIf="isSearchResultContain('blogs') && resultListStatus==='success'">
+	<div class="search-result-filter-heading"><i class="las la-newspaper"></i>Blogs</div>
+	<a routerLink="/search_result/blogs/{{item.uuid}}" class="search-result-category-wrapper" *ngFor="let item of resultList.blogs;let i=index">
+		<div class="search-result-item">
+			<span class="search-result-item-heading">AUTHOR : </span>
+			<span class="search-result-item-content">{{item.post_author}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading"></span>
+			<span class="search-result-item-content" [innerHTML]="sanitizer.bypassSecurityTrustHtml(item.post_caption)"></span>
+		</div>
+		<a href="javascript:void(0)" class="search-result-show-more waves-effect waves-light" (click)="showMoreLess($event)">more</a>
+	</a>
+</section>
+
+
+
+<section class="search-result-wrapper" *ngIf="isSearchResultContain('movies') && resultListStatus==='success'">
+	<div class="search-result-filter-heading"><i class="las la-play-circle"></i>Movies</div>
+	<a routerLink="/search_result/movies/{{item.uuid}}" class="search-result-category-wrapper" *ngFor="let item of resultList.movies;let i=index">
+		<div class="search-result-item">
+			<span class="search-result-item-heading">MOVIE : </span>
+			<span class="search-result-item-content">{{item.movie_title}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">RELEASE : </span>
+			<span class="search-result-item-content">{{item.movie_title}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">DIRECTOR : </span>
+			<span class="search-result-item-content">{{item.movie_director}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-content">{{item.movie_description}}</span>
+		</div>
+	</a>
+</section>
+
+
+<section class="search-result-wrapper" *ngIf="isSearchResultContain('music') && resultListStatus==='success'">
+	<div class="search-result-filter-heading"><i class="las la-music"></i>Music</div>
+	<a routerLink="/search_result/music/{{item.uuid}}" class="search-result-category-wrapper" *ngFor="let item of resultList.music;let i=index">
+		<div class="search-result-item">
+			<span class="search-result-item-heading">MUSIC TITLE : </span>
+			<span class="search-result-item-content">{{item.music_title}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">GENRE : </span>
+			<span class="search-result-item-content">{{item.music_title}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">ARTISTS : </span>
+			<span class="search-result-item-content">{{item.music_artists}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">ALBUM : </span>
+			<span class="search-result-item-content">{{item.music_album}}</span>
+		</div>
+	</a>
+</section>
+
+
+
+<section class="search-result-wrapper" *ngIf="isSearchResultContain('gallery') && resultListStatus==='success'">
+	<div class="search-result-filter-heading"><i class="las la-grip-horizontal"></i>Gallery</div>
+	<div class="search-result-category-wrapper">
+		<section class="search-result-item-grid-container">
+			<a routerLink="/search_result/gallery/{{item.uuid}}" class="" *ngFor="let item of resultList.gallery;let i=index">
+				<img class="search-result-item-grid-item" src="{{item.wallpaper_link}}">
+			</a>
+		</section>
+	</div>
+</section>
+
+
+
+<section class="search-result-wrapper" *ngIf="isSearchResultContain('ebooks') && resultListStatus==='success'">
+	<div class="search-result-filter-heading"><i class="las la-book-reader"></i>Ebooks</div>
+	<a routerLink="/search_result/ebooks/{{item.uuid}}" class="search-result-category-wrapper" *ngFor="let item of resultList.ebooks;let i=index">
+		<div class="search-result-item">
+			<span class="search-result-item-heading">Ebook : </span>
+			<span class="search-result-item-content">{{item.name}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">AUTHOR : </span>
+			<span class="search-result-item-content">{{item.author}}</span>
+		</div>
+		<div class="search-result-item">
+			<span class="search-result-item-heading">TOTAL PAGES : </span>
+			<span class="search-result-item-content">{{item.total_pages}}</span>
+		</div>
+	</a>
+</section>

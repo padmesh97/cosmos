@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-news-card',
@@ -35,6 +36,10 @@ export class NewsCardComponent implements OnInit {
   	this.http.get(url).subscribe(data => {
         this.picOfDayList = data;
         this.picOfDayStatus='success';
+        setTimeout(() => {
+          let elems = document.querySelectorAll('.materialboxed');
+          let instances = M.Materialbox.init(elems, {});
+        }, 100);
       },
       error =>
       {
@@ -67,12 +72,18 @@ export class NewsCardComponent implements OnInit {
   }
 
   spaceNews(){
-  	const url="https://spaceflightnewsapi.net/api/v1/articles";
+  	const url="https://spaceflightnewsapi.net/api/v2/articles";
   	this.http.get(url).subscribe(data => {
         this.spaceNewsList = data;
-        for(var i=0;i<this.spaceNewsList.docs.length;i++)
-        	this.spaceNewsTimeElapsed(this.spaceNewsList.docs[i].date_published);
-        this.spaceNewsStatus='success';
+        for(var i=0;i<this.spaceNewsList.length;i++){
+          var ts=this.spaceNewsList[i].publishedAt;
+          ts=ts.substring(0,ts.indexOf('.')-1);
+          this.spaceNewsList[i].publishedAt=ts;
+        	this.spaceNewsTimeElapsed(ts);
+        }
+        setTimeout(() => {
+          this.spaceNewsStatus='success';
+        }, 100);
       },
       error =>
       {
@@ -81,8 +92,8 @@ export class NewsCardComponent implements OnInit {
      );
   }
 
-  spaceNewsTimeElapsed(time_in_unix){
-  	const timeURL=environment.API_URL+"index.php/current/get_elapsed_time/"+time_in_unix+"/unix";
+  spaceNewsTimeElapsed(timestamp){
+  	const timeURL=environment.API_URL+"index.php/current/get_elapsed_time/"+timestamp;
     this.http.get(timeURL).subscribe(timeElapsed => {
     	var unix=Object.keys(timeElapsed)[0];
     	this.spaceNewsTimeList[unix]=Object.values(timeElapsed)[0];

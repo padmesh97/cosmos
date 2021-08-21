@@ -23,6 +23,9 @@ import { ReleasesComponent } from './releases/releases.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SearchComponent } from './search/search.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { TermsAndPrivacyComponent } from './terms-and-privacy/terms-and-privacy.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { environment } from '../environments/environment';
     AboutComponent,
     ContactComponent,
     ReleasesComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    TermsAndPrivacyComponent,
   ],
   imports: [
     BrowserModule,

@@ -46,7 +46,7 @@ figcaption {
 }
 .materialboxed:hover:not(.active){
   opacity: 1;
-  filter: contrast(150%);
+  filter: contrast(105%);
   box-shadow: 0 0 8px rgba(255,255,255,0.6),0 0 13px rgba(255,255,255,1)
 }
 .placeholder-mask{
@@ -64,6 +64,19 @@ figcaption {
   z-index: 0;
   background: linear-gradient(to right, rgb(136, 146, 176) 8%, rgba(10,25,47,1) 18%, rgb(136, 146, 176) 33%);
   animation:placeholder-loading 1s infinite;
+}
+.centered{
+  margin-top:25vh;
+  display: flex;
+  justify-content: center;
+}
+.error{
+  background:rgba(217, 30, 58, 0.9) !important;
+  border-radius:10px;
+  box-shadow: inset 3px 3px 7px rgb(179, 0, 27),inset -3px -3px 7px rgba(219, 40, 67,0.5),3px 3px 7px rgb(179, 0, 27),-3px -3px 7px rgba(219, 40, 67,0.5);
+  text-align: center;
+  border:solid 2px transparent;
+  align-self: center;
 }
 @keyframes placeholder-loading {
   0% {

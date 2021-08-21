@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input} from '@angular/core';
 import { DomSanitizer,Title } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -21,6 +21,8 @@ export class PostCardComponent implements OnInit {
   carouselOptions={fullWidth:true};
   dropdownOptions={coverTrigger:false,alignment:'right'};
 
+  @Input() childMessageBlogs: any={};
+
   constructor(private http: HttpClient,public spinner: NgxSpinnerService,public sanitizer: DomSanitizer,private titleService:Title) 
   { 
     this.titleService.setTitle("Feed | Cosmos");
@@ -29,8 +31,13 @@ export class PostCardComponent implements OnInit {
   ngOnInit(){}
 
   ngAfterViewInit(){
-    if(this.posts.length === 0)
+    if(this.posts.length === 0 && Object.keys(this.childMessageBlogs).length == 0)
       this.loadInitPosts();
+    else{
+      this.posts=this.childMessageBlogs;
+      this.received='success';
+      this.initCarousel();
+    }
   }
 
   loadInitPosts(){
