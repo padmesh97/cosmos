@@ -10,9 +10,9 @@
 <p align="center">
   An angular Progressive Web Application(PWA) with a motive to create a hub for astrogeeks and astrophiles to discover,share and explore the realms of never ending universe in the most next level way.
   <br><br>
-  <a href="https://cosmoshub.co" target="_blank">
+  <a href="https://cosmoshub.in" target="_blank">
   <img src="https://www.sigtarp.gov/SiteAssets/template/img/external-link.svg?Mobile=1&Source=%2F%5Flayouts%2Fmobile%2Fview%2Easpx%3FList%3Dd690280d%252D7c63%252D4a84%252Dbd5b%252D3b3565b098dd%26View%3D093e883f%252Ddd43%252D4422%252Dbcc9%252D2e5736717f25%26RootFolder%3D%252FSiteAssets%252Ftemplate%252Fimg%26CurrentPage%3D1" height="14" width="14">&nbsp;
-  <strong>www.cosmoshub.co</strong>
+  <strong>www.cosmoshub.in</strong>
    </a>
   <br><br>
 </p>
