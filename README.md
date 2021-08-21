@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://cosmoshub.co" target="_blank">
-    <img src="https://cosmoshub.co/assets/images/logo.png" width="150">
+  <a href="https://cosmoshub.in" target="_blank">
+    <img src="https://cosmoshub.in/assets/images/logo.png" width="150">
   </a>
 </p>
 
