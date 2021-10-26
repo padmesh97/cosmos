@@ -27,7 +27,7 @@
 	text-shadow: 0 0 5px 5px rgba(0,255,242,1.0);
 }
 html,body{
-	font-family: 'Poppins','Noto_Color_Emoji',sans-serif !important;
+	font-family: 'Poppins','NotoColorEmoji',sans-serif !important;
 	min-width: 360px;
 	background-color: rgba(10,25,47,1);
 	background-image: url(/assets/images/galaxy.gif);
@@ -108,6 +108,9 @@ a{
 .btn-concave:focus{
 	box-shadow: inset 0px -2px 5px rgba(12,45,90,1),
 				inset 0px 2px 5px rgba(6,17,34,1) !important;
+}
+.color-coral{
+	color: rgb(0,255,242) !important;
 }
 .emoji {
    height: 1.15em !important;

@@ -72,7 +72,7 @@ export class NewsCardComponent implements OnInit {
   }
 
   spaceNews(){
-  	const url="https://spaceflightnewsapi.net/api/v2/articles";
+  	const url="https://api.spaceflightnewsapi.net/v3/articles";
   	this.http.get(url).subscribe(data => {
         this.spaceNewsList = data;
         for(var i=0;i<this.spaceNewsList.length;i++){

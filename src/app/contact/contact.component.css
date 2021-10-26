@@ -1,12 +1,26 @@
 .card{
-	margin:2rem 1rem 1rem 1rem;
+	padding: 15px 20px;
+	margin:22vh auto;
 	border-radius: 1.5rem;
 	box-shadow: -3px 0 2px rgb(0,255,242), 0px 4px 12px rgba(2,8,30,1);
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+
+	background: rgb(16,48,96);
+	background: linear-gradient(320deg, rgba(16,48,96,1) 0%, rgba(0,64,162,1) 100%);
+	border-radius: 8px;
+	font-size: 1.5rem;
 }
 .card-heading{
+	font-size: 1.2rem;
 	padding:0.5em 1em;
-	color: rgba(169,182, 193,1) !important;
 	text-align: center;
+}
+.card i{
+	font-size: 5rem;
+	color: rgba(0,255,242,1);
 }
 .card-text{
 	padding:1em 1.5em;
