@@ -105,18 +105,18 @@ export class NewsCardComponent implements OnInit {
 
       if (diffMs >= oneYear) {
           const years = Math.floor(diffMs / oneYear);
-          return `${years}y`;
+          return `${years}y ago`;
       } else if (diffMs >= oneDay) {
           const days = Math.floor(diffMs / oneDay);
-          return `${days}d`;
+          return `${days}d ago`;
       } else if (diffMs >= oneHour) {
           const hours = Math.floor(diffMs / oneHour);
-          return `${hours}h`;
+          return `${hours}h ago`;
       } else if (diffMs >= oneMinute) {
           const minutes = Math.floor(diffMs / oneMinute);
-          return `${minutes}m`;
+          return `${minutes}m ago`;
       } else {
-          return "a few seconds";
+          return "a few seconds ago";
       }
   }
 
