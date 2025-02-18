@@ -22,7 +22,7 @@ export class NewsCardComponent implements OnInit {
   catchISSStatus='loading';
 
   spaceNewsList:any;
-  spaceNewsTimeList:any={};
+  spaceNewsTimeList:any=[];
   spaceNewsStatus='loading';
 
   ngOnInit(): void {
@@ -74,7 +74,7 @@ export class NewsCardComponent implements OnInit {
   spaceNews(){
   	const url="https://api.spaceflightnewsapi.net/v4/articles/?limit=10&offset=10";
   	this.http.get(url).subscribe(data => {
-        this.spaceNewsList = data.results;
+        this.spaceNewsList = data['results'];
         for(var i=0;i<this.spaceNewsList.length;i++){
           var ts=this.spaceNewsList[i].published_at;
           ts=this.getTimeDifference(ts);
