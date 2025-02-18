@@ -91,7 +91,7 @@ export class NewsCardComponent implements OnInit {
      );
   }
 
-  function getTimeDifference(timestamp: string): string {
+  getTimeDifference(timestamp: string): string {
       const now = new Date();
       const targetDate = new Date(timestamp);
       const diffMs = Math.abs(targetDate.getTime() - now.getTime());
