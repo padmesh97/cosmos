@@ -74,12 +74,11 @@ export class NewsCardComponent implements OnInit {
   spaceNews(){
   	const url="https://api.spaceflightnewsapi.net/v4/articles/?limit=10&offset=10";
   	this.http.get(url).subscribe(data => {
-        this.spaceNewsList = data;
+        this.spaceNewsList = data.results;
         for(var i=0;i<this.spaceNewsList.length;i++){
-          var ts=this.spaceNewsList[i].publishedAt;
-          ts=ts.substring(0,ts.indexOf('.')-1);
-          this.spaceNewsList[i].publishedAt=ts;
-        	this.spaceNewsTimeElapsed(ts);
+          var ts=this.spaceNewsList[i].published_at;
+          ts=this.getTimeDifference(ts);
+          this.spaceNewsList[i].published_at=ts;
         }
         setTimeout(() => {
           this.spaceNewsStatus='success';
@@ -90,6 +89,35 @@ export class NewsCardComponent implements OnInit {
       	this.spaceNewsStatus='error';
       }
      );
+  }
+
+  function getTimeDifference(timestamp: string): string {
+      const now = new Date();
+      const targetDate = new Date(timestamp);
+      const diffMs = Math.abs(targetDate.getTime() - now.getTime());
+
+      // Define time units in milliseconds
+      const oneSecond = 1000;
+      const oneMinute = oneSecond * 60;
+      const oneHour = oneMinute * 60;
+      const oneDay = oneHour * 24;
+      const oneYear = oneDay * 365;
+
+      if (diffMs >= oneYear) {
+          const years = Math.floor(diffMs / oneYear);
+          return `${years}y`;
+      } else if (diffMs >= oneDay) {
+          const days = Math.floor(diffMs / oneDay);
+          return `${days}d`;
+      } else if (diffMs >= oneHour) {
+          const hours = Math.floor(diffMs / oneHour);
+          return `${hours}h`;
+      } else if (diffMs >= oneMinute) {
+          const minutes = Math.floor(diffMs / oneMinute);
+          return `${minutes}m`;
+      } else {
+          return "a few seconds";
+      }
   }
 
   spaceNewsTimeElapsed(timestamp){

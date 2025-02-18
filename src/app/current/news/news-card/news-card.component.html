@@ -55,11 +55,11 @@
 		</div>
 		<div class="space-news-wrapper" *ngIf="spaceNewsStatus=='success'">
 			<div class="space-news" *ngFor="let item of spaceNewsList">
-				<img [src]="item.imageUrl">
+				<img [src]="item.image_url">
 				<div class="space-news-title">{{item.title}}</div>
 				<div class="space-news-source-time">
 					<span class="space-news-source">{{item.summary}}</span>
-					<span class="space-news-time" [textContent]="'&nbsp;&nbsp;&#8213;&nbsp;&nbsp;'+spaceNewsTimeList[item.publishedAt]"></span>
+					<span class="space-news-time" [textContent]="'&nbsp;&nbsp;&#8213;&nbsp;&nbsp;'+item.published_at"></span>
 				</div>
 				<a class="space-new-link" [href]="item.url" target="_blank">
 					<button>View More</button>
