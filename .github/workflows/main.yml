@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: build
+name: BUILD AND DEPLOY
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -19,7 +17,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
 
       - name: Use Node.js 12.x
@@ -41,11 +39,11 @@ jobs:
           git commit -m "commit"
           echo Build created successfully..................
 
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+      - name: Deploy Frontend
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          ftp-server: ftp://ftpupload.net/cosmoshub.in/htdocs
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          server: ftpupload.net
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/cosmos
-          git-ftp-args: --all
+          server-dir: cosmoshub.in/htdocs/cosmos/
