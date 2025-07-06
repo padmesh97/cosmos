@@ -16,7 +16,6 @@
             "outputPath": "dist/cosmos",
             "index": "src/index.html",
             "baseHref": "/cosmos/",
-            "deployUrl": "/cosmos/",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
