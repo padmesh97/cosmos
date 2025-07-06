@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
     font-family: Acumin;
-    src: url("../../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");
+    src: url("../assets/fonts/acumin-pro/Acumin-RPro.otf") format("opentype");
 }
 
 @font-face {
     font-family: Acumin;
     font-weight: bold;
-    src: url("../../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");
+    src: url("../assets/fonts/acumin-pro/Acumin-BdPro.otf") format("opentype");
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-family: 'NotoColorEmoji';
   font-style: normal;
   font-weight: 400;
-  src: url("../../assets/fonts/NotoColorEmoji.ttf") format('truetype')
+  src: url("../assets/fonts/NotoColorEmoji.ttf") format('truetype')
 }
 
 ::selection{
@@ -31,7 +31,7 @@ html,body{
 	font-family: 'Poppins','NotoColorEmoji',sans-serif !important;
 	min-width: 360px;
 	background-color: rgba(10,25,47,1);
-	background-image: url("../../assets/images/galaxy.gif");
+	background-image: url("../assets/images/galaxy.gif");
 	background-size: contain;
 	background-attachment: fixed;
 	scrollbar-color: rgba(10,25,47,0.5) rgba(10,25,47,0.6);
