@@ -20,7 +20,7 @@
 	z-index:998 !important;
 }
 .sidenav2-logo{
-	background-image: url(/assets/images/logo.png);
+	background-image: url('../../assets/images/logo.png');
 	background-size: cover;
 	height:50px;
 	width: 50px;
@@ -97,6 +97,6 @@ footer{
 	font-size: 40px;
 }
 .background{
-	background-image:url('/assets/images/bg.jpg');
+	background-image:url('../../assets/images/bg.jpg');
 	background-size:cover;
 }
