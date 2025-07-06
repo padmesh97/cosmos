@@ -27,10 +27,10 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url('/assets/images/brick-wall.jpg');
+	background-image: url('../../../../assets/images/brick-wall.jpg');
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-image: url('/assets/images/brick-wall.jpg'),linear-gradient(to bottom,rgba(0,0,0,0),rgba(15, 5, 23,1),rgba(27, 9, 43,1),rgba(40, 22, 56,1));
+	background-image: url('../../../../assets/images/brick-wall.jpg'),linear-gradient(to bottom,rgba(0,0,0,0),rgba(15, 5, 23,1),rgba(27, 9, 43,1),rgba(40, 22, 56,1));
 	opacity: 0.9;
 	border-radius: 10px;
 	z-index: 0

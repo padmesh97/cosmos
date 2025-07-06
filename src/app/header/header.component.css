@@ -1,9 +1,9 @@
 .nav-wrapper{
-	background-image: url('/assets/images/bg_xs.jpg');
+	background-image: url('../../assets/images/bg_xs.jpg');
 	background-size: cover;
 	}
 .sidenav2-logo{
-	background-image: url('/assets/images/logo.png');
+	background-image: url('../../assets/images/logo.png');
 	background-size: cover;
 	height:38px;
 	width: 38px;

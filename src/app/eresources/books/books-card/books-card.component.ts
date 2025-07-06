@@ -65,14 +65,14 @@ export class BooksCardComponent implements OnInit {
 		//------plain template-------
 		//$('#book-container').prepend("<div class=\"hard\" \><img src=\"/assets/images/cover.jpg\" width=\"100%\"\></div>");
 		//------with book cover--------
-		$('#book-container').prepend("<div class=\"hard\" \><img src=\""+this.API_URL+"/assets/ebooks/"+this.ebook_id+"/"+this.ebook_id+"-cover.jpg\" width=\"100%\"\></div>");
+		$('#book-container').prepend("<div class=\"hard\" \><img src=\""+this.API_URL+"../../../../assets/ebooks/"+this.ebook_id+"/"+this.ebook_id+"-cover.jpg\" width=\"100%\"\></div>");
 		
 		//Back Cover Inside
 		if(this.pagesCount%2==0)
 			$('#book-container').append("<div class=\"hard\" style=\"background-color:rgb(200,200,220);height: inherit;\"></div\>");
 		
 		//Back Cover Outside
-		$('#book-container').append("<div class=\"hard\"><img  src=\"/assets/images/last_cover.jpg\" width=\"100%\"\></div\>");
+		$('#book-container').append("<div class=\"hard\"><img  src=\"../../../../assets/images/last_cover.jpg\" width=\"100%\"\></div\>");
 
 		for(var i=1;i<=pages;i++){
 			this.totalPages.push({'pageno':i,'ebook_id':id});
